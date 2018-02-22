@@ -33,3 +33,4 @@ ss_platform_delete:
         _controller: SSPlatformBundle:Advert:delete
     requirements:
         id: \d+
+
