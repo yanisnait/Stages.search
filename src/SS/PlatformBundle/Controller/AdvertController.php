@@ -5,7 +5,6 @@ namespace SS\PlatformBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 
 class AdvertController extends Controller
@@ -101,21 +100,20 @@ class AdvertController extends Controller
 
     public function addAction(Request $request)
     {
-        // La gestion d'un formulaire est particulière, mais l'idée est la suivante :
+        // On vérifie que l'utilisateur dispose bien du rôle ROLE_AUTEUR
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_AUTEUR')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux auteurs.');
+        }
         // Si la requête est en POST, c'est que le visiteur a soumis le formulaire
         if ($request->isMethod('POST')) {
             // Ici, on s'occupera de la création et de la gestion du formulaire
-            if (!$this->get('security.authorization_checker')->isGranted('ROLE_AUTEUR')) {
-                throw new AccessDeniedException('Accès limité aux auteurs.');
-            }
-            else {
-                $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
 
-                // Puis on redirige vers la page de visualisation de cettte annonce
-                return $this->redirectToRoute('ss_platform_view', array('id' => 5));
-            }
+            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+
+            // Puis on redirige vers la page de visualisation de cettte annonce
+            return $this->redirectToRoute('ss_platform_view', array('id' => 5));
         }
-
 
         // Si on n'est pas en POST, alors on affiche le formulaire
         return $this->render('SSPlatformBundle:Advert:add.html.twig');

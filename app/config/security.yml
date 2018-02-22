@@ -25,28 +25,20 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        # On crée un pare-feu uniquement pour le formulaire
         main_login:
                 # Cette expression régulière permet de prendre /login (mais pas /login_check !)
             pattern:   ^/login$
             anonymous: true # On autorise alors les anonymes sur ce pare-feu
 
         main:
-            pattern: ^/
+            pattern:   ^/
             anonymous: false
-            # activate different ways to authenticate
-
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
-
-            # https://symfony.com/doc/current/security/form_login_setup.html
             form_login:
                 login_path: login
                 check_path: login_check
-
             logout:
-                path: logout
-                target: login
+                path:       logout
+                target:     login
 
 
     access_control:
