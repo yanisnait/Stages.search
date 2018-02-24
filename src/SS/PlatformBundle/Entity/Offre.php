@@ -64,12 +64,24 @@ class Offre
     private $idEtr;
 
     /**
-     * @var \DateTime
+     * @var int
+     * @ORM\Column(name="id_pers", type="integer")
+     */
+    private $idPers;
+
+    /**
+     * @var \Date
      *
-     * @ORM\Column(name="date_offre", type="date")
+     * @ORM\Column(name="date_offre", type="datetime")
      */
     private $dateOffre;
 
+
+    public function __construct()
+    {
+        // Par défaut, la date de l'annonce est la date d'aujourd'hui
+        $this->dateOffre = new \DateTime();
+    }
 
     /**
      * Get id.
@@ -224,6 +236,34 @@ class Offre
     {
         return $this->idEtr;
     }
+
+
+
+    /**
+     * Set idPers.
+     *
+     * @param int $idPers
+     *
+     * @return Offre
+     */
+    public function setIdPers($idPers)
+    {
+        $this->idPers = $idPers;
+
+        return $this;
+    }
+
+    /**
+     * Get idPers.
+     *
+     * @return int
+     */
+    public function getIdPers()
+    {
+        return $this->idPers;
+    }
+
+
 
     /**
      * Set dateOffre.

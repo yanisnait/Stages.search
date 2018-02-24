@@ -4,7 +4,7 @@
 {% extends "SSPlatformBundle::layout.html.twig" %}
 
 {% block title  %}
-Affichage de l'annonce n°{{ id }}
+Affichage de l'annonce n°{{ offre.id }}
 {% endblock %}
 
 {% block ssplatform_body %}
@@ -16,7 +16,7 @@ Affichage de l'annonce n°{{ id }}
 </div>
 
 <p>
-    Ici nous pourrons lire l'annonce ayant comme id : {{ id }}<br />
+    Ici nous pourrons lire l'annonce ayant comme id : {{offre.id }}<br />
     Mais pour l'instant, nous ne savons pas encore le faire, cela viendra !
 </p>
 {% endblock %}
