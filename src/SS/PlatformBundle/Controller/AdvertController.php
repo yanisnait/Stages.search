@@ -53,8 +53,7 @@ class AdvertController extends Controller
         // On récupère l'objet voulu
         $offre = $this->getDoctrine()
             ->getManager()
-            ->find('SSPlatformBundle:Offre', $id)
-        ;
+            ->find('SSPlatformBundle:Offre', $id);
 
         // $advert est donc une instance de OC\PlatformBundle\Entity\Advert
         // ou null si l'id $id  n'existe pas, d'où ce if :
@@ -69,78 +68,34 @@ class AdvertController extends Controller
     }
 
 
-    /* Récupérer des informations sur la session
-    public function viewAction($id, Request $request)
-    {
-        // Récupération de la session
-        $session = $request->getSession();
-
-        // On récupère le contenu de la variable user_id
-        $userId = $session->get('user_id');
-
-        // On définit une nouvelle valeur pour cette variable user_id
-        $session->set('user_id', 91);
-
-        // On n'oublie pas de renvoyer une réponse
-        return new Response("<body>Je suis une page de test, je n'ai rien à dire</body>");
-    }*/
-
-    /* Redirection de Page
-    public function viewAction($id,Request $request)
-    {
-        $url=$this->get('router')->generate('ss_platform_home');
-
-        return new RedirectResponse($url);
-                    ou
-        return $this->redirect($url);
-                    ou
-        return $this->redirectToRoute('ss_platform_home');
-
-    }
-    */
-
-    /*Obtenir un paramètre dans l'url
-     public function viewAction($id,Request $request)
-	{   $tag = $request->query->get('tag');
-		return new Response("Affichage de l'annonce d'id : ".$id.", avec le tag:".$tag);
-	}*/
-
-   /*
-    public function viewAction($id)
-    {   $response=new Response();
-        $response->setContent("Ceci est une page d'erreur 404");
-        $response->setStatusCode(Response::HTTP_NOT_FOUND);
-        return $response;
-    }*/
-
     public function addAction(Request $request)
     {
         // Création de l'entité
-        $offre = new Offre();
-        $offre->setIntitule('Recherche développeur Symfony.');
-        $offre->setDomaine("Développeur");
-        $offre->setProfil("ddsfdssdf");
-        $offre->setIdEtr(23);
-        $offre->setIdPers(12);
-        $offre->setMissions("Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…");
-        $offre->setDuree("4/5 mois");
-        $offre->setDateOffre($offre->getDateOffre());
 
-        // On peut ne pas définir ni la date ni la publication,
-        // car ces attributs sont définis automatiquement dans le constructeur
-
-        // On récupère l'EntityManager
-        $em = $this->getDoctrine()->getManager();
-
-        // Étape 1 : On « persiste » l'entité, Elle est gérée par doctrine
-        $em->persist($offre);
-
-        // Étape 2 :Eexécutions des requêtes sur ses objets
-        $em->flush();
         // Si la requête est en POST, c'est que le visiteur a soumis le formulaire
         if ($request->isMethod('POST')) {
             // Ici, on s'occupera de la création et de la gestion du formulaire
+            $offre = new Offre();
+            $offre->setIntitule('Recherche développeur Symfony.');
+            $offre->setDomaine("Développeur");
+            $offre->setProfil("ddsfdssdf");
+            $offre->setIdEtr(23);
+            $offre->setIdPers(12);
+            $offre->setMissions("Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…");
+            $offre->setDuree("4/5 mois");
+            $offre->setDateOffre($offre->getDateOffre());
 
+            // On peut ne pas définir ni la date ni la publication,
+            // car ces attributs sont définis automatiquement dans le constructeur
+
+            // On récupère l'EntityManager
+            $em = $this->getDoctrine()->getManager();
+
+            // Étape 1 : On « persiste » l'entité, Elle est gérée par doctrine
+            $em->persist($offre);
+
+            // Étape 2 :Eexécutions des requêtes sur ses objets
+            $em->flush();
             $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
 
             // Puis on redirige vers la page de visualisation de cettte annonce
