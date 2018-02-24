@@ -3,14 +3,14 @@
 namespace SS\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * Personne
  *
  * @ORM\Table(name="personne")
  * @ORM\Entity(repositoryClass="SS\PlatformBundle\Repository\PersonneRepository")
  */
-class Personne
+class Personne implements UserInterface
 {
     /**
      * @var int
@@ -277,4 +277,27 @@ class Personne
     {
         return $this->statut;
     }
+
+
+    public function getRoles(){
+
+        return array('ROLE_USER');
+    }
+
+
+    public function getSalt(){
+
+    }
+
+
+    public function getUsername(){
+
+    }
+
+
+    public function eraseCredentials(){
+
+    }
+
+
 }
