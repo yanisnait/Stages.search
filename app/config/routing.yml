@@ -3,12 +3,12 @@ ss_platform:
     prefix:   /platform
 
 login:
-    path: /login
+    path: platform/login
     defaults:
         _controller: SSUserBundle:Security:login
 
 login_check:
-    path: /login_check
+    path: platform/login_check
 
 logout:
-    path: /logout
+    path: platform/logout

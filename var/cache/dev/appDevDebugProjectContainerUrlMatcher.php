@@ -129,24 +129,24 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'ss_platform_delete')), array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::deleteAction',));
             }
 
-        }
+            if (0 === strpos($pathinfo, '/platform/login')) {
+                // login
+                if ('/platform/login' === $pathinfo) {
+                    return array (  '_controller' => 'SS\\UserBundle\\Controller\\SecurityController::loginAction',  '_route' => 'login',);
+                }
 
-        elseif (0 === strpos($pathinfo, '/login')) {
-            // login
-            if ('/login' === $pathinfo) {
-                return array (  '_controller' => 'SS\\UserBundle\\Controller\\SecurityController::loginAction',  '_route' => 'login',);
+                // login_check
+                if ('/platform/login_check' === $pathinfo) {
+                    return array('_route' => 'login_check');
+                }
+
             }
 
-            // login_check
-            if ('/login_check' === $pathinfo) {
-                return array('_route' => 'login_check');
+            // logout
+            if ('/platform/logout' === $pathinfo) {
+                return array('_route' => 'logout');
             }
 
-        }
-
-        // logout
-        if ('/logout' === $pathinfo) {
-            return array('_route' => 'logout');
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

@@ -5,7 +5,6 @@ namespace SS\UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-
 /**
  * User
  *
@@ -50,40 +49,6 @@ class User implements UserInterface
      * @ORM\Column(name="roles", type="array")
      */
     private $roles;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=50)
-     */
-    private $nom;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom", type="string", length=50)
-     */
-    private $prenom;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="etablissement", type="string", length=150)
-     */
-    private $etablissement;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="annee_etu", type="string", length=8, nullable=true)
-     */
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=60)
-     */
-    private $email;
 
 
     /**
@@ -192,101 +157,11 @@ class User implements UserInterface
         return $this->roles;
     }
 
-    /**
-     * Set nom.
-     *
-     * @param string $nom
-     *
-     * @return User
-     */
-    public function setNom($nom)
+    public function eraseCredentials()
     {
-        $this->nom = $nom;
-
-        return $this;
     }
 
-    /**
-     * Get nom.
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
 
-    /**
-     * Set prenom.
-     *
-     * @param string $prenom
-     *
-     * @return User
-     */
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    /**
-     * Get prenom.
-     *
-     * @return string
-     */
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
-
-    /**
-     * Set etablissement.
-     *
-     * @param string $etablissement
-     *
-     * @return User
-     */
-    public function setEtablissement($etablissement)
-    {
-        $this->etablissement = $etablissement;
-
-        return $this;
-    }
-
-    /**
-     * Get etablissement.
-     *
-     * @return string
-     */
-    public function getEtablissement()
-    {
-        return $this->etablissement;
-    }
-
-    /**
-     * Set email.
-     *
-     * @param string $email
-     *
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email.
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
 
 
 
