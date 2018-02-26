@@ -16,6 +16,7 @@ class SecurityController extends Controller
             return $this->redirectToRoute('ss_platform_home');
         }
 
+
         // Le service authentication_utils permet de récupérer le nom d'utilisateur
         // et l'erreur dans le cas où le formulaire a déjà été soumis mais était invalide
         // (mauvais mot de passe par exemple)
