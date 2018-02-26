@@ -6,6 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use SS\PlatformBundle\Entity\Offre;
+use SS\PlatformBundle\Entity\Entreprise;
+
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 
 class AdvertController extends Controller
@@ -70,40 +78,84 @@ class AdvertController extends Controller
 
     public function addAction(Request $request)
     {
-        // Création de l'entité
+
+        $offre = new Offre();
+        $entreprise =new Entreprise();
+
+        $formBuilderOffre=$this->get('form.factory')->createBuilder(FormType::class,$offre)
+            ->add('intitule',      TextType::class)
+            ->add('domaine',      TextType::class)
+            ->add('missions',     TextareaType::class)
+            ->add('profil',   TextareaType::class)
+            ->add('duree',    TextType::class)
+            ->add('Enregistrer',SubmitType::class)
+            ->getForm()
+        ;
+
+        $formBuilderEntreprise=$this->get('form.factory')->createBuilder(FormType::class,$entreprise)
+            ->add('nom',      TextType::class)
+            ->add('adresse',      TextType::class)
+            ->add('email',     EmailType::class)
+            ->add('tel',   NumberType::class)
+            ->add('logo',    TextType::class)
+            ->add('domaine',TextType::class)
+            ->add('description',TextareaType::class)
+            ->add('Enregistrer',SubmitType::class)
+            ->getForm()
+        ;
 
         // Si la requête est en POST, c'est que le visiteur a soumis le formulaire
         if ($request->isMethod('POST')) {
             // Ici, on s'occupera de la création et de la gestion du formulaire
-            $offre = new Offre();
+            /*$offre = new Offre();
             $offre->setIntitule('Recherche développeur Symfony.');
             $offre->setDomaine("Développeur");
             $offre->setProfil("ddsfdssdf");
-            $offre->setIdEtr(23);
+            $offre->setIdEtr();
             $offre->setIdPers(12);
             $offre->setMissions("Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…");
             $offre->setDuree("4/5 mois");
-            $offre->setDateOffre($offre->getDateOffre());
+            $offre->setDateOffre($offre->getDateOffre());*/
 
+            $formBuilderEntreprise->handleRequest($request);
+            $formBuilderOffre->handleRequest($request);
             // On peut ne pas définir ni la date ni la publication,
             // car ces attributs sont définis automatiquement dans le constructeur
+            if ($formBuilderEntreprise->isValid()) {
 
-            // On récupère l'EntityManager
-            $em = $this->getDoctrine()->getManager();
+                $em = $this->getDoctrine()->getManager();
 
-            // Étape 1 : On « persiste » l'entité, Elle est gérée par doctrine
-            $em->persist($offre);
+                // Étape 1 : On « persiste » l'entité, Elle est gérée par doctrine
+                $em->persist($entreprise);
 
-            // Étape 2 :Eexécutions des requêtes sur ses objets
-            $em->flush();
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+                // Étape 2 :Eexécutions des requêtes sur ses objets
 
-            // Puis on redirige vers la page de visualisation de cettte annonce
-            return $this->redirectToRoute('ss_platform_view', array('id' => $offre->getId()));
+                $em->flush();
+            }
+
+            if ($formBuilderOffre->isValid()) {
+                // On récupère l'EntityManager
+                $user=$this->getUser();
+
+                $offre->setIdPers($user->getId());
+                $offre->setIdEtr(22);
+
+                $em = $this->getDoctrine()->getManager();
+
+                // Étape 1 : On « persiste » l'entité, Elle est gérée par doctrine
+                $em->persist($offre);
+
+                // Étape 2 :Eexécutions des requêtes sur ses objets
+                $em->flush();
+                $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+
+                // Puis on redirige vers la page de visualisation de cettte annonce
+                return $this->redirectToRoute('ss_platform_view', array('id' => $offre->getId()));
+            }
         }
 
         // Si on n'est pas en POST, alors on affiche le formulaire
-        return $this->render('SSPlatformBundle:Advert:add.html.twig');
+        return $this->render('SSPlatformBundle:Advert:add.html.twig',array('formEntreprise'=>$formBuilderEntreprise->createView(),'formOffre'=>$formBuilderOffre->createView()));
     }
 
     public function editAction($id, Request $request)
@@ -146,7 +198,7 @@ class AdvertController extends Controller
         ));
     }
 
-	
+
 	
 	
 }

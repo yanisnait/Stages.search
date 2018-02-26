@@ -1,6 +1,6 @@
 <?php
 
-/* @SSPlatform/Advert/form.html.twig */
+/* SSPlatformBundle:Advert:form.html.twig */
 class __TwigTemplate_8646f6c8bfba0a742369525a25b604d35fd668ec94c0b0e4cf8e6d0976b53d90 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -15,11 +15,11 @@ class __TwigTemplate_8646f6c8bfba0a742369525a25b604d35fd668ec94c0b0e4cf8e6d0976b
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b14add202e9d7271bad3a2f46e646af18e178639d45cdd35d5d402794601789a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_b14add202e9d7271bad3a2f46e646af18e178639d45cdd35d5d402794601789a->enter($__internal_b14add202e9d7271bad3a2f46e646af18e178639d45cdd35d5d402794601789a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@SSPlatform/Advert/form.html.twig"));
+        $__internal_5f1ea2361c458d4682ba2f1268ca35e67ac3dcb915e0e6c98719ad6aa69c3bae = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_5f1ea2361c458d4682ba2f1268ca35e67ac3dcb915e0e6c98719ad6aa69c3bae->enter($__internal_5f1ea2361c458d4682ba2f1268ca35e67ac3dcb915e0e6c98719ad6aa69c3bae_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SSPlatformBundle:Advert:form.html.twig"));
 
-        $__internal_25ef11eb15936623a20721370f918d7bde02979dc899bc6e52ac1727bd328958 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_25ef11eb15936623a20721370f918d7bde02979dc899bc6e52ac1727bd328958->enter($__internal_25ef11eb15936623a20721370f918d7bde02979dc899bc6e52ac1727bd328958_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@SSPlatform/Advert/form.html.twig"));
+        $__internal_a869f0ec710af45ba2fd9419d5906269ba756ccf0637ad36cf5d4605a7352a6c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_a869f0ec710af45ba2fd9419d5906269ba756ccf0637ad36cf5d4605a7352a6c->enter($__internal_a869f0ec710af45ba2fd9419d5906269ba756ccf0637ad36cf5d4605a7352a6c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SSPlatformBundle:Advert:form.html.twig"));
 
         // line 2
         echo "
@@ -28,27 +28,43 @@ class __TwigTemplate_8646f6c8bfba0a742369525a25b604d35fd668ec94c0b0e4cf8e6d0976b
         echo "
 <h3>Formulaire d'annonce</h3>
 
-";
+<div class=\"well\">
+    <h3>Informations Entreprise</h3>
+    ";
         // line 11
-        echo "<div class=\"well\">
-    Ici se trouvera le formulaire.
-</div>";
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["formEntreprise"]) || array_key_exists("formEntreprise", $context) ? $context["formEntreprise"] : (function () { throw new Twig_Error_Runtime('Variable "formEntreprise" does not exist.', 11, $this->getSourceContext()); })()), 'form');
+        echo "
+
+</div>
+<div class=\"well\">
+
+    <h3>Informations Stage</h3>
+    ";
+        // line 17
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["formOffre"]) || array_key_exists("formOffre", $context) ? $context["formOffre"] : (function () { throw new Twig_Error_Runtime('Variable "formOffre" does not exist.', 17, $this->getSourceContext()); })()), 'form');
+        echo "
+</:div>";
         
-        $__internal_b14add202e9d7271bad3a2f46e646af18e178639d45cdd35d5d402794601789a->leave($__internal_b14add202e9d7271bad3a2f46e646af18e178639d45cdd35d5d402794601789a_prof);
+        $__internal_5f1ea2361c458d4682ba2f1268ca35e67ac3dcb915e0e6c98719ad6aa69c3bae->leave($__internal_5f1ea2361c458d4682ba2f1268ca35e67ac3dcb915e0e6c98719ad6aa69c3bae_prof);
 
         
-        $__internal_25ef11eb15936623a20721370f918d7bde02979dc899bc6e52ac1727bd328958->leave($__internal_25ef11eb15936623a20721370f918d7bde02979dc899bc6e52ac1727bd328958_prof);
+        $__internal_a869f0ec710af45ba2fd9419d5906269ba756ccf0637ad36cf5d4605a7352a6c->leave($__internal_a869f0ec710af45ba2fd9419d5906269ba756ccf0637ad36cf5d4605a7352a6c_prof);
 
     }
 
     public function getTemplateName()
     {
-        return "@SSPlatform/Advert/form.html.twig";
+        return "SSPlatformBundle:Advert:form.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
     }
 
     public function getDebugInfo()
     {
-        return array (  33 => 11,  28 => 6,  25 => 2,);
+        return array (  44 => 17,  35 => 11,  28 => 6,  25 => 2,);
     }
 
     public function getSourceContext()
@@ -61,10 +77,15 @@ class __TwigTemplate_8646f6c8bfba0a742369525a25b604d35fd668ec94c0b0e4cf8e6d0976b
 
 <h3>Formulaire d'annonce</h3>
 
-{# On laisse vide la vue pour l'instant, on la comblera plus tard
-   lorsqu'on saura afficher un formulaire. #}
 <div class=\"well\">
-    Ici se trouvera le formulaire.
-</div>", "@SSPlatform/Advert/form.html.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\Stages.search\\src\\SS\\PlatformBundle\\Resources\\views\\Advert\\form.html.twig");
+    <h3>Informations Entreprise</h3>
+    {{ form(formEntreprise) }}
+
+</div>
+<div class=\"well\">
+
+    <h3>Informations Stage</h3>
+    {{ form(formOffre) }}
+</:div>", "SSPlatformBundle:Advert:form.html.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\Stages.search\\src\\SS\\PlatformBundle\\Resources\\views\\Advert\\form.html.twig");
     }
 }
