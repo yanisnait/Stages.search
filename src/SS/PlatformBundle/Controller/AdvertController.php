@@ -51,14 +51,13 @@ class AdvertController extends Controller
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
-               $entreprise=$offre->getIdEtr();
-                 $logo=$entreprise->getLogo();
+        $entreprise=$offre->getIdEtr();
+        $logo=$entreprise->getLogo();
 
         // Le render ne change pas, on passait avant un tableau, maintenant un objet
         return $this->render('SSPlatformBundle:Advert:view.html.twig', array(
             'offre' => $offre,'logo'=>$logo));
     }
-
 
     public function addOAction(Request $request)
     {
@@ -113,7 +112,6 @@ class AdvertController extends Controller
         // Si on n'est pas en POST, alors on affiche le formulaire
         return $this->render('SSPlatformBundle:Advert:add.html.twig',array('formOffre'=>$formBuilderOffre->createView(),'vue'=>'O'));
     }
-
 
     public function addEAction(Request $request)
     {
