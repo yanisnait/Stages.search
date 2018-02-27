@@ -16,10 +16,10 @@
       {% for advert in listAdverts %}
         <li>
           <a href="{{ path('ss_platform_view', {'id': advert.id}) }}">
-              {{ advert.title }}
+              {{ advert.intitule }}
           </a>
-          par {{ advert.author }},
-          le {{ advert.date|date('d/m/Y') }}
+          par {{ advert.idPers }},
+          le {{ advert.dateOffre|date('d/m/Y') }}
         </li>
       {% else %}
         <li>Pas (encore !) d'annonces</li>

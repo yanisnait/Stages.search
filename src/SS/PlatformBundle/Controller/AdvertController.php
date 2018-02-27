@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use SS\PlatformBundle\Entity\Offre;
 use SS\PlatformBundle\Entity\Entreprise;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -33,26 +33,7 @@ class AdvertController extends Controller
         // Ici, on récupérera la liste des annonces, puis on la passera au template
         // Notre liste d'annonce en dur
 
-        $listAdverts = array(
-            array(
-                'title'   => 'Recherche développpeur Symfony',
-                'id'      => 5,
-                'author'  => 'Alexandre',
-                'content' => 'Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…',
-                'date'    => new \Datetime()),
-            array(
-                'title'   => 'Mission de webmaster',
-                'id'      => 2,
-                'author'  => 'Hugo',
-                'content' => 'Nous recherchons un webmaster capable de maintenir notre site internet. Blabla…',
-                'date'    => new \Datetime()),
-            array(
-                'title'   => 'Offre de stage webdesigner',
-                'id'      => 3,
-                'author'  => 'Mathieu',
-                'content' => 'Nous proposons un poste pour webdesigner. Blabla…',
-                'date'    => new \Datetime())
-        );
+        $listAdverts = $this->getDoctrine()->getManager()->getRepository('SSPlatformBundle:Offre')->findAll();
 
         return $this->render('SSPlatformBundle:Advert:index.html.twig',array('listAdverts'=>$listAdverts));
     }
@@ -143,7 +124,7 @@ class AdvertController extends Controller
             ->add('adresse',      TextType::class)
             ->add('email',     EmailType::class)
             ->add('tel',   NumberType::class)
-            ->add('logo',    TextType::class)
+            ->add('logo',    FileType::class,['required'=>false])
             ->add('domaine',TextType::class)
             ->add('description',TextareaType::class)
             ->add('Enregistrer',SubmitType::class)
@@ -168,6 +149,7 @@ class AdvertController extends Controller
                 $em->flush();
 
                 $request->getSession()->getFlashBag()->add('notice', 'Entreprise bien enregistrée.');
+
                 // Si on n'est pas en POST, alors on affiche le formulaire
 
                 return $this->redirectToRoute('ss_platform_home');
@@ -205,11 +187,8 @@ class AdvertController extends Controller
     {
         // On fixe en dur une liste ici, bien entendu par la suite
         // on la récupérera depuis la BDD !
-        $listAdverts = array(
-            array('id' => 2, 'title' => 'Recherche développeur Symfony'),
-            array('id' => 5, 'title' => 'Mission de webmaster'),
-            array('id' => 9, 'title' => 'Offre de stage webdesigner')
-        );
+        $listAdverts = $this->getDoctrine()->getManager()->getRepository('SSPlatformBundle:Offre')->findAll();
+
 
         return $this->render('SSPlatformBundle:Advert:menu.html.twig', array(
             // Tout l'intérêt est ici : le contrôleur passe
