@@ -4,13 +4,19 @@
 
 {% block body %}
 
+    {% if vue=='O'%}
     <h2>Ajouter une annonce</h2>
 
-    {{ include("SSPlatformBundle:Advert:form.html.twig") }}
+    {{ include("SSPlatformBundle:Advert:formOffre.html.twig") }}
 
-    <p>
-        Attention : cette annonce sera ajoutée directement
-        sur la page d'accueil après validation du formulaire.
-    </p>
+    {% endif %}
+
+    {% if  vue=='E' %}
+        <h2>Ajouter une entreprise</h2>
+
+        {{ include("SSPlatformBundle:Advert:formEntreprise.html.twig") }}
+
+    {% endif %}
+
 
 {% endblock %}

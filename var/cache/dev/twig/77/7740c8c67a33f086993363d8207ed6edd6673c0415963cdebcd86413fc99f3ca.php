@@ -1,6 +1,6 @@
 <?php
 
-/* @SSPlatform/Advert/add.html.twig */
+/* SSPlatformBundle:Advert:add.html.twig */
 class __TwigTemplate_3d7a87801be0f24e1e1f1c4a0521cc44a5df4572c45dee6900eaff4e9b40e3b4 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -8,7 +8,7 @@ class __TwigTemplate_3d7a87801be0f24e1e1f1c4a0521cc44a5df4572c45dee6900eaff4e9b4
         parent::__construct($env);
 
         // line 3
-        $this->parent = $this->loadTemplate("SSPlatformBundle::layout.html.twig", "@SSPlatform/Advert/add.html.twig", 3);
+        $this->parent = $this->loadTemplate("SSPlatformBundle::layout.html.twig", "SSPlatformBundle:Advert:add.html.twig", 3);
         $this->blocks = array(
             'body' => array($this, 'block_body'),
         );
@@ -21,56 +21,75 @@ class __TwigTemplate_3d7a87801be0f24e1e1f1c4a0521cc44a5df4572c45dee6900eaff4e9b4
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_3f93de82fd9184c92e887a697d858834b8896ae0b097091edfdeabf04eeec151 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_3f93de82fd9184c92e887a697d858834b8896ae0b097091edfdeabf04eeec151->enter($__internal_3f93de82fd9184c92e887a697d858834b8896ae0b097091edfdeabf04eeec151_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@SSPlatform/Advert/add.html.twig"));
+        $__internal_d3604670ea53196c8e227a7a4e3ba7cf9afb0d36f8b32865508d734851a1fe5a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_d3604670ea53196c8e227a7a4e3ba7cf9afb0d36f8b32865508d734851a1fe5a->enter($__internal_d3604670ea53196c8e227a7a4e3ba7cf9afb0d36f8b32865508d734851a1fe5a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SSPlatformBundle:Advert:add.html.twig"));
 
-        $__internal_afdb3da5de4669fd4aaeb9f4a4d1b17f5f56a8dcc58eb939974aa4dee27bb043 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_afdb3da5de4669fd4aaeb9f4a4d1b17f5f56a8dcc58eb939974aa4dee27bb043->enter($__internal_afdb3da5de4669fd4aaeb9f4a4d1b17f5f56a8dcc58eb939974aa4dee27bb043_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@SSPlatform/Advert/add.html.twig"));
+        $__internal_4418c209292c2ca9f68766eb09c183fc9c3ba65366316d02b9ab67cd381fc317 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4418c209292c2ca9f68766eb09c183fc9c3ba65366316d02b9ab67cd381fc317->enter($__internal_4418c209292c2ca9f68766eb09c183fc9c3ba65366316d02b9ab67cd381fc317_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SSPlatformBundle:Advert:add.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_3f93de82fd9184c92e887a697d858834b8896ae0b097091edfdeabf04eeec151->leave($__internal_3f93de82fd9184c92e887a697d858834b8896ae0b097091edfdeabf04eeec151_prof);
+        $__internal_d3604670ea53196c8e227a7a4e3ba7cf9afb0d36f8b32865508d734851a1fe5a->leave($__internal_d3604670ea53196c8e227a7a4e3ba7cf9afb0d36f8b32865508d734851a1fe5a_prof);
 
         
-        $__internal_afdb3da5de4669fd4aaeb9f4a4d1b17f5f56a8dcc58eb939974aa4dee27bb043->leave($__internal_afdb3da5de4669fd4aaeb9f4a4d1b17f5f56a8dcc58eb939974aa4dee27bb043_prof);
+        $__internal_4418c209292c2ca9f68766eb09c183fc9c3ba65366316d02b9ab67cd381fc317->leave($__internal_4418c209292c2ca9f68766eb09c183fc9c3ba65366316d02b9ab67cd381fc317_prof);
 
     }
 
     // line 5
     public function block_body($context, array $blocks = array())
     {
-        $__internal_95bac1cfb097c44e43ead207b93df7145eedf92bf8eb42a1b4ad5cba2dbf75fd = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_95bac1cfb097c44e43ead207b93df7145eedf92bf8eb42a1b4ad5cba2dbf75fd->enter($__internal_95bac1cfb097c44e43ead207b93df7145eedf92bf8eb42a1b4ad5cba2dbf75fd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_afb6c7f847081eecb056274f784bb50376efcbc681c5632ee90ea1fde738d13e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_afb6c7f847081eecb056274f784bb50376efcbc681c5632ee90ea1fde738d13e->enter($__internal_afb6c7f847081eecb056274f784bb50376efcbc681c5632ee90ea1fde738d13e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_df204ef0a4355a4960ae07490f45f3720d20000d0e17ab12e8a705b58533db26 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_df204ef0a4355a4960ae07490f45f3720d20000d0e17ab12e8a705b58533db26->enter($__internal_df204ef0a4355a4960ae07490f45f3720d20000d0e17ab12e8a705b58533db26_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_141839a1759d0bed8f29256241ebd5168e86ed512991faee12011ebd5fbce8fd = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_141839a1759d0bed8f29256241ebd5168e86ed512991faee12011ebd5fbce8fd->enter($__internal_141839a1759d0bed8f29256241ebd5168e86ed512991faee12011ebd5fbce8fd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
         echo "
-    <h2>Ajouter une annonce</h2>
+    ";
+        // line 7
+        if (((isset($context["vue"]) || array_key_exists("vue", $context) ? $context["vue"] : (function () { throw new Twig_Error_Runtime('Variable "vue" does not exist.', 7, $this->getSourceContext()); })()) == "O")) {
+            // line 8
+            echo "    <h2>Ajouter une annonce</h2>
 
     ";
-        // line 9
-        echo twig_include($this->env, $context, "SSPlatformBundle:Advert:form.html.twig");
-        echo "
+            // line 10
+            echo twig_include($this->env, $context, "SSPlatformBundle:Advert:formOffre.html.twig");
+            echo "
 
-    <p>
-        Attention : cette annonce sera ajoutée directement
-        sur la page d'accueil après validation du formulaire.
-    </p>
+    ";
+        }
+        // line 13
+        echo "
+    ";
+        // line 14
+        if (((isset($context["vue"]) || array_key_exists("vue", $context) ? $context["vue"] : (function () { throw new Twig_Error_Runtime('Variable "vue" does not exist.', 14, $this->getSourceContext()); })()) == "E")) {
+            // line 15
+            echo "        <h2>Ajouter une entreprise</h2>
+
+        ";
+            // line 17
+            echo twig_include($this->env, $context, "SSPlatformBundle:Advert:formEntreprise.html.twig");
+            echo "
+
+    ";
+        }
+        // line 20
+        echo "
 
 ";
         
-        $__internal_df204ef0a4355a4960ae07490f45f3720d20000d0e17ab12e8a705b58533db26->leave($__internal_df204ef0a4355a4960ae07490f45f3720d20000d0e17ab12e8a705b58533db26_prof);
+        $__internal_141839a1759d0bed8f29256241ebd5168e86ed512991faee12011ebd5fbce8fd->leave($__internal_141839a1759d0bed8f29256241ebd5168e86ed512991faee12011ebd5fbce8fd_prof);
 
         
-        $__internal_95bac1cfb097c44e43ead207b93df7145eedf92bf8eb42a1b4ad5cba2dbf75fd->leave($__internal_95bac1cfb097c44e43ead207b93df7145eedf92bf8eb42a1b4ad5cba2dbf75fd_prof);
+        $__internal_afb6c7f847081eecb056274f784bb50376efcbc681c5632ee90ea1fde738d13e->leave($__internal_afb6c7f847081eecb056274f784bb50376efcbc681c5632ee90ea1fde738d13e_prof);
 
     }
 
     public function getTemplateName()
     {
-        return "@SSPlatform/Advert/add.html.twig";
+        return "SSPlatformBundle:Advert:add.html.twig";
     }
 
     public function isTraitable()
@@ -80,7 +99,7 @@ class __TwigTemplate_3d7a87801be0f24e1e1f1c4a0521cc44a5df4572c45dee6900eaff4e9b4
 
     public function getDebugInfo()
     {
-        return array (  54 => 9,  49 => 6,  40 => 5,  11 => 3,);
+        return array (  79 => 20,  73 => 17,  69 => 15,  67 => 14,  64 => 13,  58 => 10,  54 => 8,  52 => 7,  49 => 6,  40 => 5,  11 => 3,);
     }
 
     public function getSourceContext()
@@ -91,15 +110,21 @@ class __TwigTemplate_3d7a87801be0f24e1e1f1c4a0521cc44a5df4572c45dee6900eaff4e9b4
 
 {% block body %}
 
+    {% if vue=='O'%}
     <h2>Ajouter une annonce</h2>
 
-    {{ include(\"SSPlatformBundle:Advert:form.html.twig\") }}
+    {{ include(\"SSPlatformBundle:Advert:formOffre.html.twig\") }}
 
-    <p>
-        Attention : cette annonce sera ajoutée directement
-        sur la page d'accueil après validation du formulaire.
-    </p>
+    {% endif %}
 
-{% endblock %}", "@SSPlatform/Advert/add.html.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\Stages.search\\src\\SS\\PlatformBundle\\Resources\\views\\Advert\\add.html.twig");
+    {% if  vue=='E' %}
+        <h2>Ajouter une entreprise</h2>
+
+        {{ include(\"SSPlatformBundle:Advert:formEntreprise.html.twig\") }}
+
+    {% endif %}
+
+
+{% endblock %}", "SSPlatformBundle:Advert:add.html.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\Stages.search\\src\\SS\\PlatformBundle\\Resources\\views\\Advert\\add.html.twig");
     }
 }

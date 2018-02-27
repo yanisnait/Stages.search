@@ -16,9 +16,14 @@ ss_platform_view:
         id: \d+
 
 ss_platform_add:
-    path:      /add
+    path:      /addO
     defaults:
         _controller: SSPlatformBundle:Advert:add
+
+ss_platform_addEntreprise:
+    path:      /addE
+    defaults:
+        _controller: SSPlatformBundle:Advert:addE
 
 ss_platform_edit:
     path:      /edit/{id}

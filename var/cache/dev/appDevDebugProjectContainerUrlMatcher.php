@@ -109,14 +109,22 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'ss_platform_home')), array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::indexAction',  'page' => 1,));
             }
 
-            // ss_platform_view
-            if (0 === strpos($pathinfo, '/platform/advert') && preg_match('#^/platform/advert/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ss_platform_view')), array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::viewAction',));
-            }
+            if (0 === strpos($pathinfo, '/platform/ad')) {
+                // ss_platform_view
+                if (0 === strpos($pathinfo, '/platform/advert') && preg_match('#^/platform/advert/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ss_platform_view')), array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::viewAction',));
+                }
 
-            // ss_platform_add
-            if ('/platform/add' === $pathinfo) {
-                return array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::addAction',  '_route' => 'ss_platform_add',);
+                // ss_platform_add
+                if ('/platform/addO' === $pathinfo) {
+                    return array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::addAction',  '_route' => 'ss_platform_add',);
+                }
+
+                // ss_platform_addEntreprise
+                if ('/platform/addE' === $pathinfo) {
+                    return array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::addEAction',  '_route' => 'ss_platform_addEntreprise',);
+                }
+
             }
 
             // ss_platform_edit

@@ -51,7 +51,7 @@ class __TwigTemplate_778cdcb7280ba2c861a83db3c70126e6c27292115900b11bb7b113310c4
 
     ";
         // line 9
-        echo twig_include($this->env, $context, "SSPlatformBundle:Advert:form.html.twig");
+        echo twig_include($this->env, $context, "SSPlatformBundle:Advert:formOffre.html.twig");
         echo "
 
     <p>
@@ -93,7 +93,7 @@ class __TwigTemplate_778cdcb7280ba2c861a83db3c70126e6c27292115900b11bb7b113310c4
 
     <h2>Ajouter une annonce</h2>
 
-    {{ include(\"SSPlatformBundle:Advert:form.html.twig\") }}
+    {{ include(\"SSPlatformBundle:Advert:formOffre.html.twig\") }}
 
     <p>
         Attention : cette annonce sera ajoutée directement

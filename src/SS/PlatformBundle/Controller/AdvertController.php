@@ -181,7 +181,52 @@ class AdvertController extends Controller
         }
 
         // Si on n'est pas en POST, alors on affiche le formulaire
-        return $this->render('SSPlatformBundle:Advert:add.html.twig',array('formEntreprise'=>$formBuilderEntreprise->createView(),'formOffre'=>$formBuilderOffre->createView()));
+        return $this->render('SSPlatformBundle:Advert:add.html.twig',array('formOffre'=>$formBuilderOffre->createView(),'vue'=>'O'));
+    }
+
+
+    public function addEAction(Request $request)
+    {
+        $entreprise =new Entreprise();
+
+        $formBuilderEntreprise=$this->get('form.factory')->createBuilder(FormType::class,$entreprise)
+            ->add('nom',      TextType::class)
+            ->add('adresse',      TextType::class)
+            ->add('email',     EmailType::class)
+            ->add('tel',   NumberType::class)
+            ->add('logo',    TextType::class)
+            ->add('domaine',TextType::class)
+            ->add('description',TextareaType::class)
+            ->add('Enregistrer',SubmitType::class)
+            ->getForm()
+        ;
+
+        // Si la requête est en POST, c'est que le visiteur a soumis le formulaire
+        if ($request->isMethod('POST')) {
+
+            $formBuilderEntreprise->handleRequest($request);
+            // On peut ne pas définir ni la date ni la publication,
+            // car ces attributs sont définis automatiquement dans le constructeur
+            if ($formBuilderEntreprise->isValid()) {
+
+                $em = $this->getDoctrine()->getManager();
+
+                // Étape 1 : On « persiste » l'entité, Elle est gérée par doctrine
+                $em->persist($entreprise);
+
+                // Étape 2 :Eexécutions des requêtes sur ses objets
+
+                $em->flush();
+
+                $request->getSession()->getFlashBag()->add('notice', 'Entreprise bien enregistrée.');
+                // Si on n'est pas en POST, alors on affiche le formulaire
+
+                return $this->redirectToRoute('ss_platform_home');
+            }
+
+        }
+        return $this->render('SSPlatformBundle:Advert:add.html.twig', array('formEntreprise' => $formBuilderEntreprise->createView(),'vue'=>'E'));
+
     }
 
     public function editAction($id, Request $request)

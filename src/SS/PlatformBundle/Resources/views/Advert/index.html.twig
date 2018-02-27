@@ -7,7 +7,9 @@
 {% endblock %}
 
 {% block ssplatform_body %}
-
+    {% for message in app.session.flashbag.get('info') %}
+        <p>Message flash : {{ message }}</p>
+    {% endfor %}
   <h2>Liste des annonces</h2>
 
   <ul>
