@@ -7,7 +7,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use SS\PlatformBundle\Entity\Offre;
 use SS\PlatformBundle\Entity\Entreprise;
-
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
@@ -81,6 +82,21 @@ class AdvertController extends Controller
 
         $offre = new Offre();
         $entreprise =new Entreprise();
+        $listEntreprise = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('SSPlatformBundle:Entreprise')
+            ->findAll();
+
+        $listE=array();
+        $listE2=array();
+        $listE3=array();
+        $listE4=array();
+        foreach ($listEntreprise as $list){
+            $listE3= array('id'=>$list->getId(),'nom',$list->getNom());
+            array_push($listE4,$listE3);
+           array_push($listE,$list->getId());
+        }
+
 
         $formBuilderOffre=$this->get('form.factory')->createBuilder(FormType::class,$offre)
             ->add('intitule',      TextType::class)
@@ -88,9 +104,13 @@ class AdvertController extends Controller
             ->add('missions',     TextareaType::class)
             ->add('profil',   TextareaType::class)
             ->add('duree',    TextType::class)
+            ->add('id_etr',ChoiceType::class,array(
+                'choices' => $listEntreprise,'choice_label'=>'nom','label'=>'Entreprise'))
             ->add('Enregistrer',SubmitType::class)
             ->getForm()
         ;
+
+
 
         $formBuilderEntreprise=$this->get('form.factory')->createBuilder(FormType::class,$entreprise)
             ->add('nom',      TextType::class)
@@ -138,7 +158,6 @@ class AdvertController extends Controller
                 $user=$this->getUser();
 
                 $offre->setIdPers($user->getId());
-                $offre->setIdEtr(22);
 
                 $em = $this->getDoctrine()->getManager();
 

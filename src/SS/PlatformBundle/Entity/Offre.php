@@ -76,6 +76,7 @@ class Offre
      */
     private $dateOffre;
 
+    
 
     public function __construct()
     {
