@@ -117,7 +117,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
                 // ss_platform_add
                 if ('/platform/addO' === $pathinfo) {
-                    return array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::addAction',  '_route' => 'ss_platform_add',);
+                    return array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::addOAction',  '_route' => 'ss_platform_add',);
                 }
 
                 // ss_platform_addEntreprise

@@ -1571,3 +1571,10 @@ fbc65d,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/_fragment?_p
 65320e,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform,1519742975,,200
 074057,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DSSPlatformBundle%253AAdvert%253Amenu,1519743008,f9cf85,200
 f9cf85,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform,1519743008,,200
+cc7031,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DSSPlatformBundle%253AAdvert%253Amenu,1519743317,ceb4be,200
+ceb4be,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform,1519743317,,200
+e0e2d4,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DSSPlatformBundle%253AAdvert%253Amenu,1519743319,c73cff,200
+c73cff,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform/addO,1519743319,,200
+37c8c9,127.0.0.1,POST,http://localhost/stages.search/web/app_dev.php/platform/addO,1519743338,,302
+b7d32d,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DSSPlatformBundle%253AAdvert%253Amenu,1519743338,26c518,200
+26c518,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform/advert/14,1519743338,,200

@@ -70,8 +70,6 @@ class AdvertController extends Controller
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
-
-
                $entreprise=$offre->getIdEtr();
                  $logo=$entreprise->getLogo();
 
@@ -81,29 +79,15 @@ class AdvertController extends Controller
     }
 
 
-    public function addAction(Request $request)
+    public function addOAction(Request $request)
     {
 
         $offre = new Offre();
-        $entreprise =new Entreprise();
-
-
 
         $listEntreprise = $this->getDoctrine()
             ->getManager()
             ->getRepository('SSPlatformBundle:Entreprise')
             ->findAll();
-
-        $listE=array();
-        $listE2=array();
-        $listE3=array();
-        $listE4=array();
-        foreach ($listEntreprise as $list){
-            $listE3= array('id'=>$list->getId(),'nom',$list->getNom());
-            array_push($listE4,$listE3);
-           array_push($listE,$list->getId());
-        }
-
 
         $formBuilderOffre=$this->get('form.factory')->createBuilder(FormType::class,$offre)
             ->add('intitule',      TextType::class)
@@ -116,48 +100,13 @@ class AdvertController extends Controller
             ->getForm()
         ;
 
-
-
-        $formBuilderEntreprise=$this->get('form.factory')->createBuilder(FormType::class,$entreprise)
-            ->add('nom',      TextType::class)
-            ->add('adresse',      TextType::class)
-            ->add('email',     EmailType::class)
-            ->add('tel',   NumberType::class)
-            ->add('logo',    TextType::class)
-            ->add('domaine',TextType::class)
-            ->add('description',TextareaType::class)
-            ->add('Enregistrer',SubmitType::class)
-            ->getForm()
-        ;
-
         // Si la requête est en POST, c'est que le visiteur a soumis le formulaire
         if ($request->isMethod('POST')) {
-            // Ici, on s'occupera de la création et de la gestion du formulaire
-            /*$offre = new Offre();
-            $offre->setIntitule('Recherche développeur Symfony.');
-            $offre->setDomaine("Développeur");
-            $offre->setProfil("ddsfdssdf");
-            $offre->setIdEtr();
-            $offre->setIdPers(12);
-            $offre->setMissions("Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…");
-            $offre->setDuree("4/5 mois");
-            $offre->setDateOffre($offre->getDateOffre());*/
 
-            $formBuilderEntreprise->handleRequest($request);
             $formBuilderOffre->handleRequest($request);
             // On peut ne pas définir ni la date ni la publication,
             // car ces attributs sont définis automatiquement dans le constructeur
-            if ($formBuilderEntreprise->isValid()) {
 
-                $em = $this->getDoctrine()->getManager();
-
-                // Étape 1 : On « persiste » l'entité, Elle est gérée par doctrine
-                $em->persist($entreprise);
-
-                // Étape 2 :Eexécutions des requêtes sur ses objets
-
-                $em->flush();
-            }
 
             if ($formBuilderOffre->isValid()) {
                 // On récupère l'EntityManager
