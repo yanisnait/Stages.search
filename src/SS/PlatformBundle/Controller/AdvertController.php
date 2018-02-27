@@ -70,10 +70,14 @@ class AdvertController extends Controller
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
+
+
+               $entreprise=$offre->getIdEtr();
+                 $logo=$entreprise->getLogo();
+
         // Le render ne change pas, on passait avant un tableau, maintenant un objet
         return $this->render('SSPlatformBundle:Advert:view.html.twig', array(
-            'offre' => $offre
-        ));
+            'offre' => $offre,'logo'=>$logo));
     }
 
 
@@ -82,6 +86,9 @@ class AdvertController extends Controller
 
         $offre = new Offre();
         $entreprise =new Entreprise();
+
+
+
         $listEntreprise = $this->getDoctrine()
             ->getManager()
             ->getRepository('SSPlatformBundle:Entreprise')
@@ -104,8 +111,7 @@ class AdvertController extends Controller
             ->add('missions',     TextareaType::class)
             ->add('profil',   TextareaType::class)
             ->add('duree',    TextType::class)
-            ->add('id_etr',ChoiceType::class,array(
-                'choices' => $listEntreprise,'choice_label'=>'nom','label'=>'Entreprise'))
+            ->add('id_etr',ChoiceType::class,['choices'=>$listEntreprise,'choice_label'=>'nom','label'=>'Entreprise'])
             ->add('Enregistrer',SubmitType::class)
             ->getForm()
         ;
@@ -167,6 +173,7 @@ class AdvertController extends Controller
                 // Étape 2 :Eexécutions des requêtes sur ses objets
                 $em->flush();
                 $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+
 
                 // Puis on redirige vers la page de visualisation de cettte annonce
                 return $this->redirectToRoute('ss_platform_view', array('id' => $offre->getId()));

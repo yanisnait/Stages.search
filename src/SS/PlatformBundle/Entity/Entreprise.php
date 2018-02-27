@@ -70,6 +70,10 @@ class Entreprise
      */
     private $description;
 
+    public function __construct()
+    {
+
+    }
 
     /**
      * Get id.

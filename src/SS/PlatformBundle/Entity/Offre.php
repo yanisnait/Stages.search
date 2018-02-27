@@ -57,9 +57,9 @@ class Offre
     private $duree;
 
     /**
-     * @var int
+     * @var object
      *
-     * @ORM\Column(name="id_etr", type="integer")
+     * @ORM\Column(name="id_etr", type="object")
      */
     private $idEtr;
 
@@ -76,7 +76,7 @@ class Offre
      */
     private $dateOffre;
 
-    
+
 
     public function __construct()
     {
@@ -217,7 +217,7 @@ class Offre
     /**
      * Set idEtr.
      *
-     * @param int $idEtr
+     * @param object $idEtr
      *
      * @return Offre
      */
@@ -231,7 +231,7 @@ class Offre
     /**
      * Get idEtr.
      *
-     * @return int
+     * @return object
      */
     public function getIdEtr()
     {
