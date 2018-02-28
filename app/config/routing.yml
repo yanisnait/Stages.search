@@ -3,7 +3,7 @@ ss_platform:
     prefix:   /platform
 
 login:
-    path: /login
+    path: /
     defaults:
         _controller: SSUserBundle:User:signin
 
