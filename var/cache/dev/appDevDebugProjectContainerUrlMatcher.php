@@ -129,12 +129,12 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
             // ss_platform_edit
             if (0 === strpos($pathinfo, '/platform/edit') && preg_match('#^/platform/edit/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ss_platform_edit')), array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::editAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ss_platform_edit')), array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::editOAction',));
             }
 
             // ss_platform_delete
-            if (0 === strpos($pathinfo, '/platform/delete') && preg_match('#^/platform/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ss_platform_delete')), array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::deleteAction',));
+            if (0 === strpos($pathinfo, '/platform/delete') && preg_match('#^/platform/delete/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ss_platform_delete')), array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::deleteOAction',));
             }
 
         }

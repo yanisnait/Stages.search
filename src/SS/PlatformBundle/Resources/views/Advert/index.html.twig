@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block ssplatform_body %}
-    {% for message in app.session.flashbag.get('info') %}
+    {% for message in app.session.flashbag.get('notice_O_Delete') %}
         <p>Message flash : {{ message }}</p>
     {% endfor %}
   <h2>Liste des annonces</h2>

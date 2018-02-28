@@ -23,19 +23,21 @@ class AdvertController extends Controller
     {
         // On ne sait pas combien de pages il y a
         // Mais on sait qu'une page doit être supérieure ou égale à 1
-		$page=($page=="") ?1 : $page;
+
+        $page = ($page == "") ? 1 : $page;
         if ($page < 1) {
             // On déclenche une exception NotFoundHttpException, cela va afficher
             // une page d'erreur 404 (qu'on pourra personnaliser plus tard d'ailleurs)
-            throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
+            throw new NotFoundHttpException('Page "' . $page . '" inexistante.');
         }
 
-        // Ici, on récupérera la liste des annonces, puis on la passera au template
-        // Notre liste d'annonce en dur
+            // Ici, on récupérera la liste des annonces, puis on la passera au template
+            // Notre liste d'annonce en dur
 
-        $listAdverts = $this->getDoctrine()->getManager()->getRepository('SSPlatformBundle:Offre')->findAll();
+            $listAdverts = $this->getDoctrine()->getManager()->getRepository('SSPlatformBundle:Offre')->findAll();
 
-        return $this->render('SSPlatformBundle:Advert:index.html.twig',array('listAdverts'=>$listAdverts));
+        return $this->render('SSPlatformBundle:Advert:index.html.twig', array('listAdverts' => $listAdverts));
+
     }
 
     public function viewAction($id)
@@ -101,7 +103,7 @@ class AdvertController extends Controller
 
                 // Étape 2 :Eexécutions des requêtes sur ses objets
                 $em->flush();
-                $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+                $request->getSession()->getFlashBag()->add('notice_O', 'Offre bien enregistrée.');
 
 
                 // Puis on redirige vers la page de visualisation de cettte annonce
@@ -146,7 +148,7 @@ class AdvertController extends Controller
 
                 $em->flush();
 
-                $request->getSession()->getFlashBag()->add('notice', 'Entreprise bien enregistrée.');
+                $request->getSession()->getFlashBag()->add('notice_E', 'Entreprise bien enregistrée.');
 
                 // Si on n'est pas en POST, alors on affiche le formulaire
 
@@ -158,27 +160,74 @@ class AdvertController extends Controller
 
     }
 
-    public function editAction($id, Request $request)
+    public function editOAction($id, Request $request)
     {
-        // Ici, on récupérera l'annonce correspondante à $id
+        $offre = $this->getDoctrine()->getManager()->find('SSPlatformBundle:Offre',$id);
+        $offre->setDateOffre(new \DateTime());
 
-        // Même mécanisme que pour l'ajout
+        $listEntreprise = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('SSPlatformBundle:Entreprise')
+            ->findAll();
+
+        $formBuilderOffre=$this->get('form.factory')->createBuilder(FormType::class,$offre)
+            ->add('intitule',      TextType::class)
+            ->add('domaine',      TextType::class)
+            ->add('missions',     TextareaType::class)
+            ->add('profil',   TextareaType::class)
+            ->add('duree',    TextType::class)
+            ->add('id_etr',ChoiceType::class,['choices'=>$listEntreprise,'choice_label'=>'nom','label'=>'Entreprise'])
+            ->add('Enregistrer',SubmitType::class)
+            ->getForm()
+        ;
+
+        // Si la requête est en POST, c'est que le visiteur a soumis le formulaire
         if ($request->isMethod('POST')) {
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
 
-            return $this->redirectToRoute('ss_platform_view', array('id' => 5));
+            $formBuilderOffre->handleRequest($request);
+            // On peut ne pas définir ni la date ni la publication,
+            // car ces attributs sont définis automatiquement dans le constructeur
+
+
+            if ($formBuilderOffre->isValid()) {
+                // On récupère l'EntityManager
+                $user=$this->getUser();
+
+                $offre->setIdPers($user->getId());
+
+                $em = $this->getDoctrine()->getManager();
+
+                // Étape 1 : On « persiste » l'entité, Elle est gérée par doctrine
+                $em->persist($offre);
+
+                // Étape 2 :Eexécutions des requêtes sur ses objets
+                $em->flush();
+                $request->getSession()->getFlashBag()->add('notice_O', 'Offre bien enregistrée.');
+
+
+                // Puis on redirige vers la page de visualisation de cettte annonce
+                return $this->redirectToRoute('ss_platform_view', array('id' => $offre->getId()));
+            }
         }
 
-        return $this->render('SSPlatformBundle:Advert:edit.html.twig');
+        // Si on n'est pas en POST, alors on affiche le formulaire
+        return $this->render('SSPlatformBundle:Advert:add.html.twig',array('formOffre'=>$formBuilderOffre->createView(),'vue'=>'O'));
+
     }
 
-    public function deleteAction($id)
+    public function deleteOAction($id, Request $request)
     {
-        // Ici, on récupérera l'annonce correspondant à $id
+        echo "dddd";
+        $offre=$this->getDoctrine()->getManager()->find('SSPlatformBundle:Offre',$id);
 
-        // Ici, on gérera la suppression de l'annonce en question
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($offre);
+        $em->flush();
 
-        return $this->render('SSPlatformBundle:Advert:delete.html.twig');
+        $request->getSession()->getFlashBag()->add('notice_O_Delete', 'Offre supprimée.');
+
+
+        return $this->redirectToRoute('ss_platform_home');
     }
 
     public function menuAction($limit)

@@ -10,7 +10,7 @@ Affichage de l'annonce n°{{ offre.id }}
 {% block ssplatform_body %}
 <div>
     {# On affiche tous les messages flash dont le nom est « info » #}
-    {% for message in app.session.flashbag.get('info') %}
+    {% for message in app.session.flashbag.get('notice_O') %}
         <p>Message flash : {{ message }}</p>
     {% endfor %}
 </div>
@@ -18,6 +18,10 @@ Affichage de l'annonce n°{{ offre.id }}
 <p>
     {{ offre.intitule }}<br>
     <img src={{ logo }}>
+    <a href="{{ path('ss_platform_edit',{'id':offre.id}) }}" type="submit">Modifier</a>
+
+    <a href="{{ path('ss_platform_delete',{'id':offre.id}) }}" type="submit">Supprimer</a>
+
 </p>
 
 

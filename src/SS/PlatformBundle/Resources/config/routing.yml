@@ -28,14 +28,12 @@ ss_platform_addEntreprise:
 ss_platform_edit:
     path:      /edit/{id}
     defaults:
-        _controller: SSPlatformBundle:Advert:edit
+        _controller: SSPlatformBundle:Advert:editO
     requirements:
         id: \d+
 
 ss_platform_delete:
     path:      /delete/{id}
     defaults:
-        _controller: SSPlatformBundle:Advert:delete
-    requirements:
-        id: \d+
+        _controller: SSPlatformBundle:Advert:deleteO
 
