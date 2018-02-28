@@ -1,5 +1,7 @@
 {# src/SS/UserBundle/Resources/views/Security/login.html.twig #}
 
+{#% extends "SSPlatformBundle::layout.html.twig" %#}
+
 {% block body %}
 
     {# S'il y a une erreur, on l'affiche dans un joli cadre #}
@@ -8,7 +10,7 @@
     {% endif %}
 
     {# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu #}
-    <form action="{{ path('login_check') }}" method="post">
+    <!-- <form action="{{ path('login_check') }}" method="post">
         <label for="username">Login :</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}" />
         <br>
@@ -16,6 +18,58 @@
         <input type="password" id="password" name="_password" />
         <br />
         <input type="submit" value="Connexion" />
-    </form>
+    </form> -->
 
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <div id="login-overlay" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Connexion à Stages Search</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="well">
+                            <form id="loginForm" action="{{ path('login_check') }}" method="post" novalidate="novalidate">
+                                <div class="form-group">
+                                    <label for="username" class="control-label">Nom d'utilisateur</label>
+                                    <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="" title="Please enter you username" placeholder="example@gmail.com">
+                                    <span class="help-block"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="control-label">Mot de passe</label>
+                                    <input type="password" class="form-control" id="password" name="_password" value="" required="" title="Please enter your password">
+                                    <span class="help-block"></span>
+                                </div>
+                                <div id="loginErrorMsg" class="alert alert-error hide">Mauvais nom d'utilisateur ou mot de passe</div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" id="remember"> Se souvenir de moi
+                                    </label>
+                                    <p class="help-block">(réseau non public)</p>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-block">Connexion</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <p class="lead">Inscrivez vous maintenant<span class="text-success">!</span></p>
+                        <ul class="list-unstyled" style="line-height: 2">
+                            <li><span class="fa fa-check text-success"></span> Ajoutez des annonces</li>
+                            <li><span class="fa fa-check text-success"></span> Suivre l'avancement de vos recherches</li>
+                            <li><span class="fa fa-check text-success"></span> Commenter les annonces</li>
+                            <li><span class="fa fa-check text-success"></span> Aidez les autres étudiants</li>
+                        </ul>
+                        <p><a href="/new-customer/" class="btn btn-info btn-block">S'inscrire mainteant !</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
