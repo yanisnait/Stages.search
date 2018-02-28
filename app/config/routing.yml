@@ -5,7 +5,7 @@ ss_platform:
 login:
     path: /login
     defaults:
-        _controller: SSUserBundle:Security:login
+        _controller: SSUserBundle:User:signin
 
 login_check:
     path: /login_check

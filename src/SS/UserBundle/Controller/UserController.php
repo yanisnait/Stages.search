@@ -1,17 +1,17 @@
 <?php
-// src/SS/UserBundle/Controller/SecurityController.php;
+// src/SS/UserBundle/Controller/UserController;
 
 namespace SS\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class SecurityController extends Controller
+class UserController extends Controller
 {
 
-    public function loginAction(Request $request)
+    public function signinAction(Request $request)
     {
-        // Si le visiteur est déjà identifié, on le redirige vers l'accueil
+        
         if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             return $this->redirectToRoute('ss_platform_home');
         }
@@ -30,6 +30,10 @@ class SecurityController extends Controller
 
     }
 
+    public function signupAction(Request $request)
+    {
 
+
+    }
 
 }

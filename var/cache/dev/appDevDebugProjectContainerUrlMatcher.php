@@ -142,7 +142,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         elseif (0 === strpos($pathinfo, '/login')) {
             // login
             if ('/login' === $pathinfo) {
-                return array (  '_controller' => 'SS\\UserBundle\\Controller\\SecurityController::loginAction',  '_route' => 'login',);
+                return array (  '_controller' => 'SS\\UserBundle\\Controller\\UserController::signinAction',  '_route' => 'login',);
             }
 
             // login_check
