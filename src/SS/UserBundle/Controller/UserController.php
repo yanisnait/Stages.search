@@ -44,7 +44,7 @@ class UserController extends Controller
     {
         $user=new User();
         $formUser=$this->get('form.factory')->createBuilder(FormType::class,$user)
-            ->add('username',TextType::class,array('label'=>'Nom d\'Utilisateur'))
+            ->add('username',EmailType::class,array('label'=>'Nom d\'Utilisateur'))
             ->add('password',PasswordType::class,array('label'=>'Mot de passe'))
             ->add('S\'inscrire',SubmitType::class)
             ->getForm();

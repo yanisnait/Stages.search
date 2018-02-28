@@ -2,28 +2,47 @@
 
 {% extends "SSPlatformBundle::layout.html.twig" %}
 
+
 {% block title %}
   Accueil - {{ parent() }}
 {% endblock %}
 
 {% block ssplatform_body %}
-    {% for message in app.session.flashbag.get('notice_O_Delete') %}
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    {% for message in app.session.flashbag.get('info') %}
         <p>Message flash : {{ message }}</p>
     {% endfor %}
   <h2>Liste des annonces</h2>
-
-  <ul>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Intitulé</th>
+            <th scope="col">Posté par</th>
+            <th scope="col">Date publication</th>
+        </tr>
+        </thead>
+        <tbody>
       {% for advert in listAdverts %}
-        <li>
-          <a href="{{ path('ss_platform_view', {'id': advert.id}) }}">
-              {{ advert.intitule }}
-          </a>
-          par {{ advert.idPers }},
-          le {{ advert.dateOffre|date('d/m/Y') }}
-        </li>
+          <tr>
+              <th>
+                  {{ advert.id }}
+              </th>
+              <td><a href="{{ path('ss_platform_view', {'id': advert.id}) }}">
+                      {{ advert.intitule }}
+                  </a></td>
+              <td>Test</td>
+              <td>{{ advert.dateOffre|date('d/m/Y') }}</td>
+          </tr>
       {% else %}
-        <li>Pas (encore !) d'annonces</li>
+        <tr>
+            <td>Aucune annonce publiée</td>
+        </tr>
       {% endfor %}
-  </ul>
+        </tbody>
+  </table>
 
 {% endblock %}

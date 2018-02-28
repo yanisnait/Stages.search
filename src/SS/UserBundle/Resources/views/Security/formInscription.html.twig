@@ -3,12 +3,23 @@
 {# Cette vue n'hérite de personne, elle sera incluse par d'autres vues qui,
    elles, hériteront probablement du layout. Je dis « probablement » car,
    ici pour cette vue, on n'en sait rien et c'est une info qui ne nous concerne pas. #}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 <h3>Formulaire d'inscription</h3>
+<link href="{{ asset('login.css') }}" rel="stylesheet">
+<div class="fullscreen_bg">
+    <div class="container modal-dialog modal-content">
 
-<div class="well">
+        <h3>Informations Utilisateur</h3>
 
-    <h3>Informations Utilisateur</h3>
         {{ form(formUser) }}
+
+    </div>
+
 
 </div>
