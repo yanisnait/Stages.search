@@ -3,6 +3,7 @@
 namespace SS\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use SS\UserBundle\Entity\User;
 
 /**
  * Commentaire
@@ -22,25 +23,11 @@ class Commentaire
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id_user", type="integer")
-     */
-    private $idUser;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_offre", type="integer")
-     */
-    private $idOffre;
 
     /**
      * @var string
@@ -49,6 +36,23 @@ class Commentaire
      */
     private $contenu;
 
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="SS\UserBundle\Entity\User", inversedBy="commentaires",cascade={"persist"})
+     * @ORM\JoinColumns({
+     *     @ORM\JoinColumn(name="User_id", referencedColumnName="id")})
+     */
+    private $auteur;
+
+    /**
+     * @var Offre
+     *
+     * @ORM\ManyToOne(targetEntity="Offre", inversedBy="avis",cascade={"persist"})
+     * @ORM\JoinColumns({
+     *     @ORM\JoinColumn(name="Offre_id", referencedColumnName="id")})
+     */
+    private $offre;
 
     /**
      * Get id.
@@ -58,30 +62,6 @@ class Commentaire
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idUser.
-     *
-     * @param int $idUser
-     *
-     * @return Commentaire
-     */
-    public function setIdUser($idUser)
-    {
-        $this->idUser = $idUser;
-
-        return $this;
-    }
-
-    /**
-     * Get idUser.
-     *
-     * @return int
-     */
-    public function getIdUser()
-    {
-        return $this->idUser;
     }
 
     /**
@@ -109,30 +89,6 @@ class Commentaire
     }
 
     /**
-     * Set idOffre.
-     *
-     * @param int $idOffre
-     *
-     * @return Commentaire
-     */
-    public function setIdOffre($idOffre)
-    {
-        $this->idOffre = $idOffre;
-
-        return $this;
-    }
-
-    /**
-     * Get idOffre.
-     *
-     * @return int
-     */
-    public function getIdOffre()
-    {
-        return $this->idOffre;
-    }
-
-    /**
      * Set contenu.
      *
      * @param string $contenu
@@ -155,4 +111,40 @@ class Commentaire
     {
         return $this->contenu;
     }
+
+    /**
+     * @param User $user
+     *
+     */
+    public function setAuteur(User $user)
+    {
+        $this->auteur=$user;
+    }
+
+    /**
+     * @return User
+     *
+     */
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
+
+    /**
+     * @param Offre $offre
+     */
+
+    public function setOffre(Offre $offre)
+    {
+        $this->offre=$offre;
+    }
+
+    /**
+     * @return Offre
+     */
+    public function getOffre()
+    {
+        return $this->offre;
+    }
+
 }

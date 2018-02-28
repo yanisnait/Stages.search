@@ -1,6 +1,6 @@
 <?php
 
-/* @Security/Collector/security.html.twig */
+/* @User/Collector/security.html.twig */
 class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f14d0b1 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -8,7 +8,7 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("@WebProfiler/Profiler/layout.html.twig", "@Security/Collector/security.html.twig", 1);
+        $this->parent = $this->loadTemplate("@WebProfiler/Profiler/layout.html.twig", "@User/Collector/security.html.twig", 1);
         $this->blocks = array(
             'page_title' => array($this, 'block_page_title'),
             'toolbar' => array($this, 'block_toolbar'),
@@ -25,10 +25,10 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
     protected function doDisplay(array $context, array $blocks = array())
     {
         $__internal_a6e07353332b594e725dc3a3b618f75d6533c645403c613a33592b16ecd2d1aa = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_a6e07353332b594e725dc3a3b618f75d6533c645403c613a33592b16ecd2d1aa->enter($__internal_a6e07353332b594e725dc3a3b618f75d6533c645403c613a33592b16ecd2d1aa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Security/Collector/security.html.twig"));
+        $__internal_a6e07353332b594e725dc3a3b618f75d6533c645403c613a33592b16ecd2d1aa->enter($__internal_a6e07353332b594e725dc3a3b618f75d6533c645403c613a33592b16ecd2d1aa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@User/Collector/security.html.twig"));
 
         $__internal_04b868c8020311fc2692de452a1d4f45a352ee0cdbcf7acc68e18cf88dca858e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_04b868c8020311fc2692de452a1d4f45a352ee0cdbcf7acc68e18cf88dca858e->enter($__internal_04b868c8020311fc2692de452a1d4f45a352ee0cdbcf7acc68e18cf88dca858e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Security/Collector/security.html.twig"));
+        $__internal_04b868c8020311fc2692de452a1d4f45a352ee0cdbcf7acc68e18cf88dca858e->enter($__internal_04b868c8020311fc2692de452a1d4f45a352ee0cdbcf7acc68e18cf88dca858e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@User/Collector/security.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
@@ -48,7 +48,7 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
         $__internal_2fbc5b8458b482ab5b41ece5c178b2a451d0d6132b260f889a8d6c4277b28a15 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_2fbc5b8458b482ab5b41ece5c178b2a451d0d6132b260f889a8d6c4277b28a15->enter($__internal_2fbc5b8458b482ab5b41ece5c178b2a451d0d6132b260f889a8d6c4277b28a15_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "page_title"));
 
-        echo "Security";
+        echo "User";
         
         $__internal_2fbc5b8458b482ab5b41ece5c178b2a451d0d6132b260f889a8d6c4277b28a15->leave($__internal_2fbc5b8458b482ab5b41ece5c178b2a451d0d6132b260f889a8d6c4277b28a15_prof);
 
@@ -91,7 +91,7 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
         ob_start();
         // line 14
         echo "        ";
-        echo twig_include($this->env, $context, "@Security/Collector/icon.svg");
+        echo twig_include($this->env, $context, "@User/Collector/icon.svg");
         echo "
         <span class=\"sf-toolbar-value\">";
         // line 15
@@ -217,9 +217,9 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
         echo "\">
         <span class=\"icon\">";
         // line 67
-        echo twig_include($this->env, $context, "@Security/Collector/icon.svg");
+        echo twig_include($this->env, $context, "@User/Collector/icon.svg");
         echo "</span>
-        <strong>Security</strong>
+        <strong>User</strong>
     </span>
 ";
         
@@ -240,7 +240,7 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
         $__internal_eb47fb0fb6bdb0505ee8cab349aa8041ed5170692f55dee74854186174a903ba->enter($__internal_eb47fb0fb6bdb0505ee8cab349aa8041ed5170692f55dee74854186174a903ba_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "panel"));
 
         // line 73
-        echo "    <h2>Security Token</h2>
+        echo "    <h2>User Token</h2>
 
     ";
         // line 75
@@ -337,7 +337,7 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
             // line 128
             echo "
 
-        <h2>Security Firewall</h2>
+        <h2>User Firewall</h2>
 
         ";
             // line 132
@@ -356,7 +356,7 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
                 // line 139
                 echo twig_include($this->env, $context, (("@WebProfiler/Icon/" . ((twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new Twig_Error_Runtime('Variable "collector" does not exist.', 139, $this->getSourceContext()); })()), "firewall", array()), "security_enabled", array())) ? ("yes") : ("no"))) . ".svg"));
                 echo "</span>
-                    <span class=\"label\">Security enabled</span>
+                    <span class=\"label\">User enabled</span>
                 </div>
                 <div class=\"metric\">
                     <span class=\"value\">";
@@ -463,7 +463,7 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
         // line 203
         if ( !twig_test_empty(((twig_get_attribute($this->env, $this->getSourceContext(), ($context["collector"] ?? null), "voters", array(), "any", true, true)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->getSourceContext(), ($context["collector"] ?? null), "voters", array()), array())) : (array())))) {
             // line 204
-            echo "        <h2>Security Voters <small>(";
+            echo "        <h2>User Voters <small>(";
             echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new Twig_Error_Runtime('Variable "collector" does not exist.', 204, $this->getSourceContext()); })()), "voters", array())), "html", null, true);
             echo ")</small></h2>
 
@@ -639,7 +639,7 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
 
     public function getTemplateName()
     {
-        return "@Security/Collector/security.html.twig";
+        return "@User/Collector/security.html.twig";
     }
 
     public function isTraitable()
@@ -656,7 +656,7 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
     {
         return new Twig_Source("{% extends '@WebProfiler/Profiler/layout.html.twig' %}
 
-{% block page_title 'Security' %}
+{% block page_title 'User' %}
 
 {% block toolbar %}
     {% if collector.token %}
@@ -667,7 +667,7 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
     {% endif %}
 
     {% set icon %}
-        {{ include('@Security/Collector/icon.svg') }}
+        {{ include('@User/Collector/icon.svg') }}
         <span class=\"sf-toolbar-value\">{{ collector.user|default('n/a') }}</span>
     {% endset %}
 
@@ -720,13 +720,13 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
 
 {% block menu %}
     <span class=\"label {{ not collector.enabled or not collector.token ? 'disabled' }}\">
-        <span class=\"icon\">{{ include('@Security/Collector/icon.svg') }}</span>
-        <strong>Security</strong>
+        <span class=\"icon\">{{ include('@User/Collector/icon.svg') }}</span>
+        <strong>User</strong>
     </span>
 {% endblock %}
 
 {% block panel %}
-    <h2>Security Token</h2>
+    <h2>User Token</h2>
 
     {% if collector.enabled %}
         {% if collector.token %}
@@ -783,7 +783,7 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
         {% endif %}
 
 
-        <h2>Security Firewall</h2>
+        <h2>User Firewall</h2>
 
         {% if collector.firewall %}
             <div class=\"metrics\">
@@ -793,7 +793,7 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
                 </div>
                 <div class=\"metric\">
                     <span class=\"value\">{{ include('@WebProfiler/Icon/' ~ (collector.firewall.security_enabled ? 'yes' : 'no') ~ '.svg') }}</span>
-                    <span class=\"label\">Security enabled</span>
+                    <span class=\"label\">User enabled</span>
                 </div>
                 <div class=\"metric\">
                     <span class=\"value\">{{ include('@WebProfiler/Icon/' ~ (collector.firewall.stateless ? 'yes' : 'no') ~ '.svg') }}</span>
@@ -857,7 +857,7 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
     {% endif %}
 
     {% if collector.voters|default([]) is not empty %}
-        <h2>Security Voters <small>({{ collector.voters|length }})</small></h2>
+        <h2>User Voters <small>({{ collector.voters|length }})</small></h2>
 
         <div class=\"metrics\">
             <div class=\"metric\">
@@ -927,6 +927,6 @@ class __TwigTemplate_1d85aee00d044602b123f95f8948714b36e1094f946d30f20413f8f35f1
         </table>
     {% endif %}
 {% endblock %}
-", "@Security/Collector/security.html.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\Stages.search\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle\\Resources\\views\\Collector\\security.html.twig");
+", "@User/Collector/security.html.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\Stages.search\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle\\Resources\\views\\Collector\\security.html.twig");
     }
 }

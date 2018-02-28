@@ -2,8 +2,9 @@
 
 namespace SS\PlatformBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
+use SS\UserBundle\Entity\User;
 /**
  * Offre
  *
@@ -57,31 +58,42 @@ class Offre
     private $duree;
 
     /**
-     * @var object
-     *
-     * @ORM\Column(name="id_etr", type="object")
-     */
-    private $idEtr;
-
-    /**
-     * @var int
-     * @ORM\Column(name="id_pers", type="integer")
-     */
-    private $idPers;
-
-    /**
      * @var \Date
      *
      * @ORM\Column(name="date_offre", type="datetime")
      */
     private $dateOffre;
 
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="SS\UserBundle\Entity\User", inversedBy="offres",cascade={"persist"})
+     * @ORM\JoinColumns({
+     *     @ORM\JoinColumn(name="User_id", referencedColumnName="id")})
+     */
+    private $auteur;
 
+    /**
+     * @var Entreprise
+     *
+     * @ORM\ManyToOne(targetEntity="Entreprise", inversedBy="offres",cascade={"persist"})
+     * @ORM\JoinColumns({
+     *     @ORM\JoinColumn(name="Entreprise_id", referencedColumnName="id")})
+     */
+    private $entreprise;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="offre", cascade={"persist"})
+     */
+    private $avis;
 
     public function __construct()
     {
         // Par défaut, la date de l'annonce est la date d'aujourd'hui
         $this->dateOffre = new \DateTime();
+        $this->avis=new ArrayCollection();
     }
 
     /**
@@ -215,58 +227,6 @@ class Offre
     }
 
     /**
-     * Set idEtr.
-     *
-     * @param object $idEtr
-     *
-     * @return Offre
-     */
-    public function setIdEtr($idEtr)
-    {
-        $this->idEtr = $idEtr;
-
-        return $this;
-    }
-
-    /**
-     * Get idEtr.
-     *
-     * @return object
-     */
-    public function getIdEtr()
-    {
-        return $this->idEtr;
-    }
-
-
-
-    /**
-     * Set idPers.
-     *
-     * @param int $idPers
-     *
-     * @return Offre
-     */
-    public function setIdPers($idPers)
-    {
-        $this->idPers = $idPers;
-
-        return $this;
-    }
-
-    /**
-     * Get idPers.
-     *
-     * @return int
-     */
-    public function getIdPers()
-    {
-        return $this->idPers;
-    }
-
-
-
-    /**
      * Set dateOffre.
      *
      * @param \DateTime $dateOffre
@@ -289,4 +249,61 @@ class Offre
     {
         return $this->dateOffre;
     }
+
+    /**
+     * @param User $user
+     *
+     */
+    public function setAuteur(User $user)
+    {
+        $this->auteur=$user;
+    }
+
+    /**
+     * @return User
+     *
+     */
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
+
+    /**
+     * @param Entreprise $entreprise
+     *
+     */
+    public function setEntreprise(Entreprise $entreprise)
+    {
+        $this->entreprise=$entreprise;
+    }
+
+    /**
+     * @return Entreprise
+     *
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
+    }
+
+    /**
+     * @param Commentaire $commentaire
+     *
+     */
+    public function addAvis(Commentaire $commentaire)
+    {
+        $commentaire->setOffre($this);
+        if(!$this->avis->contains($commentaire))
+            $this->avis->add($commentaire);
+
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getAvis()
+    {
+        return $this->avis;
+    }
+
 }

@@ -478,7 +478,7 @@ class __TwigTemplate_af6849524071a99645fb220097e4811d2af9fbc0680ae7a80d32044aa65
             // line 192
             echo ((twig_in_filter(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new Twig_Error_Runtime('Variable "collector" does not exist.', 192, $this->getSourceContext()); })()), "symfonystate", array()), array(0 => "eom", 1 => "eol"))) ? ("were") : ("are"));
             echo " fixed until</th>
-                    <th>Security issues ";
+                    <th>User issues ";
             // line 193
             echo (((twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new Twig_Error_Runtime('Variable "collector" does not exist.', 193, $this->getSourceContext()); })()), "symfonystate", array()) == "eol")) ? ("were") : ("are"));
             echo " fixed until</th>
@@ -848,7 +848,7 @@ class __TwigTemplate_af6849524071a99645fb220097e4811d2af9fbc0680ae7a80d32044aa65
                 <tr>
                     <th>Symfony Status</th>
                     <th>Bugs {{ collector.symfonystate in ['eom', 'eol'] ? 'were' : 'are' }} fixed until</th>
-                    <th>Security issues {{ collector.symfonystate == 'eol' ? 'were' : 'are' }} fixed until</th>
+                    <th>User issues {{ collector.symfonystate == 'eol' ? 'were' : 'are' }} fixed until</th>
                     <th></th>
                 </tr>
             </thead>

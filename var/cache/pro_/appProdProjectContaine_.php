@@ -1940,7 +1940,7 @@ class appProdProjectContaine_ extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Symfony\Component\Security\Guard\GuardAuthenticatorHandler A Symfony\Component\Security\Guard\GuardAuthenticatorHandler instance
+     * @return \Symfony\Component\User\Guard\GuardAuthenticatorHandler A Symfony\Component\User\Guard\GuardAuthenticatorHandler instance
      */
     protected function getSecurity_Authentication_GuardHandlerService()
     {
@@ -1953,7 +1953,7 @@ class appProdProjectContaine_ extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Symfony\Component\Security\Http\Authentication\AuthenticationUtils A Symfony\Component\Security\Http\Authentication\AuthenticationUtils instance
+     * @return \Symfony\Component\User\Http\Authentication\AuthenticationUtils A Symfony\Component\User\Http\Authentication\AuthenticationUtils instance
      */
     protected function getSecurity_AuthenticationUtilsService()
     {
@@ -1966,7 +1966,7 @@ class appProdProjectContaine_ extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Symfony\Component\Security\Core\Authorization\AuthorizationChecker A Symfony\Component\Security\Core\Authorization\AuthorizationChecker instance
+     * @return \Symfony\Component\User\Core\Authorization\AuthorizationChecker A Symfony\Component\User\Core\Authorization\AuthorizationChecker instance
      */
     protected function getSecurity_AuthorizationCheckerService()
     {
@@ -1979,7 +1979,7 @@ class appProdProjectContaine_ extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Symfony\Component\Security\Csrf\CsrfTokenManager A Symfony\Component\Security\Csrf\CsrfTokenManager instance
+     * @return \Symfony\Component\User\Csrf\CsrfTokenManager A Symfony\Component\User\Csrf\CsrfTokenManager instance
      */
     protected function getSecurity_Csrf_TokenManagerService()
     {
@@ -1992,7 +1992,7 @@ class appProdProjectContaine_ extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Symfony\Component\Security\Core\Encoder\EncoderFactory A Symfony\Component\Security\Core\Encoder\EncoderFactory instance
+     * @return \Symfony\Component\User\Core\Encoder\EncoderFactory A Symfony\Component\User\Core\Encoder\EncoderFactory instance
      */
     protected function getSecurity_EncoderFactoryService()
     {
@@ -2025,7 +2025,7 @@ class appProdProjectContaine_ extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Symfony\Bundle\SecurityBundle\Security\FirewallContext A Symfony\Bundle\SecurityBundle\Security\FirewallContext instance
+     * @return \Symfony\Bundle\SecurityBundle\User\FirewallContext A Symfony\Bundle\SecurityBundle\User\FirewallContext instance
      */
     protected function getSecurity_Firewall_Map_Context_DevService()
     {
@@ -2038,7 +2038,7 @@ class appProdProjectContaine_ extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Symfony\Bundle\SecurityBundle\Security\FirewallContext A Symfony\Bundle\SecurityBundle\Security\FirewallContext instance
+     * @return \Symfony\Bundle\SecurityBundle\User\FirewallContext A Symfony\Bundle\SecurityBundle\User\FirewallContext instance
      */
     protected function getSecurity_Firewall_Map_Context_MainService()
     {
@@ -2059,7 +2059,7 @@ class appProdProjectContaine_ extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Symfony\Component\Security\Core\Encoder\UserPasswordEncoder A Symfony\Component\Security\Core\Encoder\UserPasswordEncoder instance
+     * @return \Symfony\Component\User\Core\Encoder\UserPasswordEncoder A Symfony\Component\User\Core\Encoder\UserPasswordEncoder instance
      */
     protected function getSecurity_PasswordEncoderService()
     {
@@ -2072,7 +2072,7 @@ class appProdProjectContaine_ extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Symfony\Component\Security\Http\RememberMe\ResponseListener A Symfony\Component\Security\Http\RememberMe\ResponseListener instance
+     * @return \Symfony\Component\User\Http\RememberMe\ResponseListener A Symfony\Component\User\Http\RememberMe\ResponseListener instance
      */
     protected function getSecurity_Rememberme_ResponseListenerService()
     {
@@ -2085,7 +2085,7 @@ class appProdProjectContaine_ extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage A Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage instance
+     * @return \Symfony\Component\User\Core\Authentication\Token\Storage\TokenStorage A Symfony\Component\User\Core\Authentication\Token\Storage\TokenStorage instance
      */
     protected function getSecurity_TokenStorageService()
     {
@@ -2098,7 +2098,7 @@ class appProdProjectContaine_ extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator A Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator instance
+     * @return \Symfony\Component\User\Core\Validator\Constraints\UserPasswordValidator A Symfony\Component\User\Core\Validator\Constraints\UserPasswordValidator instance
      */
     protected function getSecurity_Validator_UserPasswordService()
     {
@@ -2617,7 +2617,7 @@ class appProdProjectContaine_ extends Container
         $this->services['twig.loader'] = $instance = new \Symfony\Bundle\TwigBundle\Loader\FilesystemLoader(${($_ = isset($this->services['templating.locator']) ? $this->services['templating.locator'] : $this->getTemplating_LocatorService()) && false ?: '_'}, ${($_ = isset($this->services['templating.name_parser']) ? $this->services['templating.name_parser'] : $this->get('templating.name_parser')) && false ?: '_'}, $this->targetDirs[3]);
 
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views'), 'Framework');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views'), 'Security');
+        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views'), 'User');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views'), 'Twig');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\swiftmailer-bundle/Resources/views'), 'Swiftmailer');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-bundle/Resources/views'), 'Doctrine');
@@ -3233,7 +3233,7 @@ class appProdProjectContaine_ extends Container
      * If you want to be able to request this service from the container directly,
      * make it public, otherwise you might end up with broken code.
      *
-     * @return \Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter A Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter instance
+     * @return \Symfony\Component\User\Core\Authorization\Voter\AuthenticatedVoter A Symfony\Component\User\Core\Authorization\Voter\AuthenticatedVoter instance
      */
     protected function getSecurity_Access_AuthenticatedVoterService()
     {
@@ -3250,7 +3250,7 @@ class appProdProjectContaine_ extends Container
      * If you want to be able to request this service from the container directly,
      * make it public, otherwise you might end up with broken code.
      *
-     * @return \Symfony\Component\Security\Core\Authorization\AccessDecisionManager A Symfony\Component\Security\Core\Authorization\AccessDecisionManager instance
+     * @return \Symfony\Component\User\Core\Authorization\AccessDecisionManager A Symfony\Component\User\Core\Authorization\AccessDecisionManager instance
      */
     protected function getSecurity_Access_DecisionManagerService()
     {
@@ -3271,7 +3271,7 @@ class appProdProjectContaine_ extends Container
      * If you want to be able to request this service from the container directly,
      * make it public, otherwise you might end up with broken code.
      *
-     * @return \Symfony\Component\Security\Core\Authorization\Voter\ExpressionVoter A Symfony\Component\Security\Core\Authorization\Voter\ExpressionVoter instance
+     * @return \Symfony\Component\User\Core\Authorization\Voter\ExpressionVoter A Symfony\Component\User\Core\Authorization\Voter\ExpressionVoter instance
      */
     protected function getSecurity_Access_ExpressionVoterService()
     {
@@ -3288,7 +3288,7 @@ class appProdProjectContaine_ extends Container
      * If you want to be able to request this service from the container directly,
      * make it public, otherwise you might end up with broken code.
      *
-     * @return \Symfony\Component\Security\Core\Authorization\Voter\RoleVoter A Symfony\Component\Security\Core\Authorization\Voter\RoleVoter instance
+     * @return \Symfony\Component\User\Core\Authorization\Voter\RoleVoter A Symfony\Component\User\Core\Authorization\Voter\RoleVoter instance
      */
     protected function getSecurity_Access_SimpleRoleVoterService()
     {
@@ -3305,7 +3305,7 @@ class appProdProjectContaine_ extends Container
      * If you want to be able to request this service from the container directly,
      * make it public, otherwise you might end up with broken code.
      *
-     * @return \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager A Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager instance
+     * @return \Symfony\Component\User\Core\Authentication\AuthenticationProviderManager A Symfony\Component\User\Core\Authentication\AuthenticationProviderManager instance
      */
     protected function getSecurity_Authentication_ManagerService()
     {
@@ -3328,7 +3328,7 @@ class appProdProjectContaine_ extends Container
      * If you want to be able to request this service from the container directly,
      * make it public, otherwise you might end up with broken code.
      *
-     * @return \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider A Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider instance
+     * @return \Symfony\Component\User\Core\Authentication\Provider\AnonymousAuthenticationProvider A Symfony\Component\User\Core\Authentication\Provider\AnonymousAuthenticationProvider instance
      */
     protected function getSecurity_Authentication_Provider_Anonymous_MainService()
     {
@@ -3345,7 +3345,7 @@ class appProdProjectContaine_ extends Container
      * If you want to be able to request this service from the container directly,
      * make it public, otherwise you might end up with broken code.
      *
-     * @return \Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver A Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver instance
+     * @return \Symfony\Component\User\Core\Authentication\AuthenticationTrustResolver A Symfony\Component\User\Core\Authentication\AuthenticationTrustResolver instance
      */
     protected function getSecurity_Authentication_TrustResolverService()
     {
@@ -3362,7 +3362,7 @@ class appProdProjectContaine_ extends Container
      * If you want to be able to request this service from the container directly,
      * make it public, otherwise you might end up with broken code.
      *
-     * @return \Symfony\Component\Security\Http\Logout\LogoutUrlGenerator A Symfony\Component\Security\Http\Logout\LogoutUrlGenerator instance
+     * @return \Symfony\Component\User\Http\Logout\LogoutUrlGenerator A Symfony\Component\User\Http\Logout\LogoutUrlGenerator instance
      */
     protected function getSecurity_LogoutUrlGeneratorService()
     {
@@ -3396,7 +3396,7 @@ class appProdProjectContaine_ extends Container
      * If you want to be able to request this service from the container directly,
      * make it public, otherwise you might end up with broken code.
      *
-     * @return \Symfony\Component\Security\Core\Role\RoleHierarchy A Symfony\Component\Security\Core\Role\RoleHierarchy instance
+     * @return \Symfony\Component\User\Core\Role\RoleHierarchy A Symfony\Component\User\Core\Role\RoleHierarchy instance
      */
     protected function getSecurity_RoleHierarchyService()
     {

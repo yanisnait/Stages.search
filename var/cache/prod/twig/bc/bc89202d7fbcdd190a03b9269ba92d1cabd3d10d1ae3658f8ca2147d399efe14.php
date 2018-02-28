@@ -1,6 +1,6 @@
 <?php
 
-/* @Security/Collector/icon.svg */
+/* @User/Collector/icon.svg */
 class __TwigTemplate_48c4fcde36413d27b82d5daae62650ef6623702f1602429ec49886b689ed9385 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -24,7 +24,7 @@ class __TwigTemplate_48c4fcde36413d27b82d5daae62650ef6623702f1602429ec49886b689e
 
     public function getTemplateName()
     {
-        return "@Security/Collector/icon.svg";
+        return "@User/Collector/icon.svg";
     }
 
     public function getDebugInfo()
@@ -42,6 +42,6 @@ class __TwigTemplate_48c4fcde36413d27b82d5daae62650ef6623702f1602429ec49886b689e
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "@Security/Collector/icon.svg", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\stages.search\\stages.search\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle\\Resources\\views\\Collector\\icon.svg");
+        return new Twig_Source("", "@User/Collector/icon.svg", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\stages.search\\stages.search\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle\\Resources\\views\\Collector\\icon.svg");
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-/* SSUserBundle:Security:login.html.twig */
+/* SSUserBundle:User:login.html.twig */
 class __TwigTemplate_6acbc95e4a22fca93e46965db6bc717f170cb0a248a79372fc8de1a082f1ab91 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -8,7 +8,7 @@ class __TwigTemplate_6acbc95e4a22fca93e46965db6bc717f170cb0a248a79372fc8de1a082f
         parent::__construct($env);
 
         // line 3
-        $this->parent = $this->loadTemplate("SSPlatformBundle::layout.html.twig", "SSUserBundle:Security:login.html.twig", 3);
+        $this->parent = $this->loadTemplate("SSPlatformBundle::layout.html.twig", "SSUserBundle:User:login.html.twig", 3);
         $this->blocks = array(
             'body' => array($this, 'block_body'),
         );
@@ -22,10 +22,10 @@ class __TwigTemplate_6acbc95e4a22fca93e46965db6bc717f170cb0a248a79372fc8de1a082f
     protected function doDisplay(array $context, array $blocks = array())
     {
         $__internal_b4ce58f24bb128f3994908f68909e47f709cad999adb5a583049d27f1b84b122 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_b4ce58f24bb128f3994908f68909e47f709cad999adb5a583049d27f1b84b122->enter($__internal_b4ce58f24bb128f3994908f68909e47f709cad999adb5a583049d27f1b84b122_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SSUserBundle:Security:login.html.twig"));
+        $__internal_b4ce58f24bb128f3994908f68909e47f709cad999adb5a583049d27f1b84b122->enter($__internal_b4ce58f24bb128f3994908f68909e47f709cad999adb5a583049d27f1b84b122_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SSUserBundle:User:login.html.twig"));
 
         $__internal_5deff9dba55daf31557a718272d4443578b4dc296ca2cf3cbcdc89d8146db652 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_5deff9dba55daf31557a718272d4443578b4dc296ca2cf3cbcdc89d8146db652->enter($__internal_5deff9dba55daf31557a718272d4443578b4dc296ca2cf3cbcdc89d8146db652_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SSUserBundle:Security:login.html.twig"));
+        $__internal_5deff9dba55daf31557a718272d4443578b4dc296ca2cf3cbcdc89d8146db652->enter($__internal_5deff9dba55daf31557a718272d4443578b4dc296ca2cf3cbcdc89d8146db652_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SSUserBundle:User:login.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
@@ -87,7 +87,7 @@ class __TwigTemplate_6acbc95e4a22fca93e46965db6bc717f170cb0a248a79372fc8de1a082f
 
     public function getTemplateName()
     {
-        return "SSUserBundle:Security:login.html.twig";
+        return "SSUserBundle:User:login.html.twig";
     }
 
     public function isTraitable()
@@ -102,7 +102,7 @@ class __TwigTemplate_6acbc95e4a22fca93e46965db6bc717f170cb0a248a79372fc8de1a082f
 
     public function getSourceContext()
     {
-        return new Twig_Source("{# src/SS/UserBundle/Resources/views/Security/login.html.twig #}
+        return new Twig_Source("{# src/SS/UserBundle/Resources/views/User/login.html.twig #}
 
 {% extends \"SSPlatformBundle::layout.html.twig\" %}
 
@@ -124,6 +124,6 @@ class __TwigTemplate_6acbc95e4a22fca93e46965db6bc717f170cb0a248a79372fc8de1a082f
         <input type=\"submit\" value=\"Connexion\" />
     </form>
 
-{% endblock %}", "SSUserBundle:Security:login.html.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\Stages.search\\src\\SS\\UserBundle/Resources/views/Security/login.html.twig");
+{% endblock %}", "SSUserBundle:User:login.html.twig", "C:\\Program Files (x86)\\EasyPHP-Devserver-17\\eds-www\\Stages.search\\src\\SS\\UserBundle/Resources/views/User/login.html.twig");
     }
 }

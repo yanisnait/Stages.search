@@ -3,6 +3,7 @@
 namespace SS\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Entreprise
@@ -70,9 +71,16 @@ class Entreprise
      */
     private $description;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Offre", mappedBy="entreprise", cascade={"persist"})
+     */
+    private $offres;
+
     public function __construct()
     {
-
+        $this->offres= new ArrayCollection();
     }
 
     /**
@@ -252,4 +260,26 @@ class Entreprise
     {
         return $this->description;
     }
+
+    /**
+     * @param Offre $offre
+     *
+     */
+    public function addOffres(Offre $offre)
+    {
+        $offre->setEntreprise($this);
+
+        if(!$this->offres->contains($offre))
+            $this->offres->add($offre);
+    }
+
+    /**
+     * @return ArrayCollection
+     *
+     */
+    public function getOffres()
+    {
+        return $this->offres;
+    }
+
 }

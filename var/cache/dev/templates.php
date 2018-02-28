@@ -89,7 +89,7 @@
   'SSPlatformBundle:Advert:menu.html.twig' => __DIR__.'/../../../src/SS/PlatformBundle/Resources/views/Advert/menu.html.twig',
   'SSPlatformBundle:Advert:view.html.twig' => __DIR__.'/../../../src/SS/PlatformBundle/Resources/views/Advert/view.html.twig',
   'SSPlatformBundle::layout.html.twig' => __DIR__.'/../../../src/SS/PlatformBundle/Resources/views/layout.html.twig',
-  'SSUserBundle:Security:login.html.twig' => __DIR__.'/../../../src/SS/UserBundle/Resources/views/Security/login.html.twig',
+  'SSUserBundle:User:login.html.twig' => __DIR__ . '/../../../src/SS/UserBundle/Resources/views/User/login.html.twig',
   'DebugBundle:Profiler:dump.html.twig' => __DIR__.'/../../../vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views/Profiler/dump.html.twig',
   'WebProfilerBundle:Collector:ajax.html.twig' => __DIR__.'/../../../vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views/Collector/ajax.html.twig',
   'WebProfilerBundle:Collector:cache.html.twig' => __DIR__.'/../../../vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views/Collector/cache.html.twig',

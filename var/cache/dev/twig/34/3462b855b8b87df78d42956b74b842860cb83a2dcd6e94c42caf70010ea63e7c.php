@@ -48,7 +48,7 @@ class __TwigTemplate_fecc3974bba7358a3ee047a0da0845fd553cf3a42d5857be5030fd9b9f1
         $__internal_0fa28f873dd53eae48e9f08ac1bc896746aa3e64528424d179a6ab05958d367e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_0fa28f873dd53eae48e9f08ac1bc896746aa3e64528424d179a6ab05958d367e->enter($__internal_0fa28f873dd53eae48e9f08ac1bc896746aa3e64528424d179a6ab05958d367e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "page_title"));
 
-        echo "Security";
+        echo "User";
         
         $__internal_0fa28f873dd53eae48e9f08ac1bc896746aa3e64528424d179a6ab05958d367e->leave($__internal_0fa28f873dd53eae48e9f08ac1bc896746aa3e64528424d179a6ab05958d367e_prof);
 
@@ -91,7 +91,7 @@ class __TwigTemplate_fecc3974bba7358a3ee047a0da0845fd553cf3a42d5857be5030fd9b9f1
         ob_start();
         // line 14
         echo "        ";
-        echo twig_include($this->env, $context, "@Security/Collector/icon.svg");
+        echo twig_include($this->env, $context, "@User/Collector/icon.svg");
         echo "
         <span class=\"sf-toolbar-value\">";
         // line 15
@@ -217,9 +217,9 @@ class __TwigTemplate_fecc3974bba7358a3ee047a0da0845fd553cf3a42d5857be5030fd9b9f1
         echo "\">
         <span class=\"icon\">";
         // line 67
-        echo twig_include($this->env, $context, "@Security/Collector/icon.svg");
+        echo twig_include($this->env, $context, "@User/Collector/icon.svg");
         echo "</span>
-        <strong>Security</strong>
+        <strong>User</strong>
     </span>
 ";
         
@@ -240,7 +240,7 @@ class __TwigTemplate_fecc3974bba7358a3ee047a0da0845fd553cf3a42d5857be5030fd9b9f1
         $__internal_cec753465dc2dbe6942acd1ccf9d0ecf8aa5e270962f0037fa03d5171f078c9f->enter($__internal_cec753465dc2dbe6942acd1ccf9d0ecf8aa5e270962f0037fa03d5171f078c9f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "panel"));
 
         // line 73
-        echo "    <h2>Security Token</h2>
+        echo "    <h2>User Token</h2>
 
     ";
         // line 75
@@ -337,7 +337,7 @@ class __TwigTemplate_fecc3974bba7358a3ee047a0da0845fd553cf3a42d5857be5030fd9b9f1
             // line 128
             echo "
 
-        <h2>Security Firewall</h2>
+        <h2>User Firewall</h2>
 
         ";
             // line 132
@@ -356,7 +356,7 @@ class __TwigTemplate_fecc3974bba7358a3ee047a0da0845fd553cf3a42d5857be5030fd9b9f1
                 // line 139
                 echo twig_include($this->env, $context, (("@WebProfiler/Icon/" . ((twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new Twig_Error_Runtime('Variable "collector" does not exist.', 139, $this->getSourceContext()); })()), "firewall", array()), "security_enabled", array())) ? ("yes") : ("no"))) . ".svg"));
                 echo "</span>
-                    <span class=\"label\">Security enabled</span>
+                    <span class=\"label\">User enabled</span>
                 </div>
                 <div class=\"metric\">
                     <span class=\"value\">";
@@ -463,7 +463,7 @@ class __TwigTemplate_fecc3974bba7358a3ee047a0da0845fd553cf3a42d5857be5030fd9b9f1
         // line 203
         if ( !twig_test_empty(((twig_get_attribute($this->env, $this->getSourceContext(), ($context["collector"] ?? null), "voters", array(), "any", true, true)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->getSourceContext(), ($context["collector"] ?? null), "voters", array()), array())) : (array())))) {
             // line 204
-            echo "        <h2>Security Voters <small>(";
+            echo "        <h2>User Voters <small>(";
             echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new Twig_Error_Runtime('Variable "collector" does not exist.', 204, $this->getSourceContext()); })()), "voters", array())), "html", null, true);
             echo ")</small></h2>
 
@@ -656,7 +656,7 @@ class __TwigTemplate_fecc3974bba7358a3ee047a0da0845fd553cf3a42d5857be5030fd9b9f1
     {
         return new Twig_Source("{% extends '@WebProfiler/Profiler/layout.html.twig' %}
 
-{% block page_title 'Security' %}
+{% block page_title 'User' %}
 
 {% block toolbar %}
     {% if collector.token %}
@@ -667,7 +667,7 @@ class __TwigTemplate_fecc3974bba7358a3ee047a0da0845fd553cf3a42d5857be5030fd9b9f1
     {% endif %}
 
     {% set icon %}
-        {{ include('@Security/Collector/icon.svg') }}
+        {{ include('@User/Collector/icon.svg') }}
         <span class=\"sf-toolbar-value\">{{ collector.user|default('n/a') }}</span>
     {% endset %}
 
@@ -720,13 +720,13 @@ class __TwigTemplate_fecc3974bba7358a3ee047a0da0845fd553cf3a42d5857be5030fd9b9f1
 
 {% block menu %}
     <span class=\"label {{ not collector.enabled or not collector.token ? 'disabled' }}\">
-        <span class=\"icon\">{{ include('@Security/Collector/icon.svg') }}</span>
-        <strong>Security</strong>
+        <span class=\"icon\">{{ include('@User/Collector/icon.svg') }}</span>
+        <strong>User</strong>
     </span>
 {% endblock %}
 
 {% block panel %}
-    <h2>Security Token</h2>
+    <h2>User Token</h2>
 
     {% if collector.enabled %}
         {% if collector.token %}
@@ -783,7 +783,7 @@ class __TwigTemplate_fecc3974bba7358a3ee047a0da0845fd553cf3a42d5857be5030fd9b9f1
         {% endif %}
 
 
-        <h2>Security Firewall</h2>
+        <h2>User Firewall</h2>
 
         {% if collector.firewall %}
             <div class=\"metrics\">
@@ -793,7 +793,7 @@ class __TwigTemplate_fecc3974bba7358a3ee047a0da0845fd553cf3a42d5857be5030fd9b9f1
                 </div>
                 <div class=\"metric\">
                     <span class=\"value\">{{ include('@WebProfiler/Icon/' ~ (collector.firewall.security_enabled ? 'yes' : 'no') ~ '.svg') }}</span>
-                    <span class=\"label\">Security enabled</span>
+                    <span class=\"label\">User enabled</span>
                 </div>
                 <div class=\"metric\">
                     <span class=\"value\">{{ include('@WebProfiler/Icon/' ~ (collector.firewall.stateless ? 'yes' : 'no') ~ '.svg') }}</span>
@@ -857,7 +857,7 @@ class __TwigTemplate_fecc3974bba7358a3ee047a0da0845fd553cf3a42d5857be5030fd9b9f1
     {% endif %}
 
     {% if collector.voters|default([]) is not empty %}
-        <h2>Security Voters <small>({{ collector.voters|length }})</small></h2>
+        <h2>User Voters <small>({{ collector.voters|length }})</small></h2>
 
         <div class=\"metrics\">
             <div class=\"metric\">

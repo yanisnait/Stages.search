@@ -32,7 +32,7 @@ class UserController extends Controller
         // (mauvais mot de passe par exemple)
         $authenticationUtils = $this->get('security.authentication_utils');
 
-        return $this->render('SSUserBundle:Security:login.html.twig', array(
+        return $this->render('SSUserBundle:User:login.html.twig', array(
             'last_username' => $authenticationUtils->getLastUsername(),
             'error'         => $authenticationUtils->getLastAuthenticationError(),
         ));
@@ -44,7 +44,7 @@ class UserController extends Controller
     {
         $user=new User();
         $formUser=$this->get('form.factory')->createBuilder(FormType::class,$user)
-            ->add('username',EmailType::class,array('label'=>'Nom d\'Utilisateur'))
+            ->add('username',TextType::class,array('label'=>'Nom d\'Utilisateur'))
             ->add('password',PasswordType::class,array('label'=>'Mot de passe'))
             ->add('S\'inscrire',SubmitType::class)
             ->getForm();
@@ -75,7 +75,7 @@ class UserController extends Controller
         }
 
         // Si on n'est pas en POST, alors on affiche le formulaire
-        return $this->render('SSUserBundle:Security:formInscription.html.twig',array('formUser'=>$formUser->createView()));
+        return $this->render('SSUserBundle:User:formInscription.html.twig',array('formUser'=>$formUser->createView()));
     }
 
 

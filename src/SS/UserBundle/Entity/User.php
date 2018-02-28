@@ -3,7 +3,10 @@
 namespace SS\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use SS\PlatformBundle\Entity\Commentaire;
 use Symfony\Component\Security\Core\User\UserInterface;
+use SS\PlatformBundle\Entity\Offre;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
@@ -50,9 +53,25 @@ class User implements UserInterface
      */
     private $roles;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="SS\PlatformBundle\Entity\Offre", mappedBy="auteur", cascade={"persist"})
+     */
+    private $offres;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="SS\PlatformBundle\Entity\Commentaire", mappedBy="auteur", cascade={"persist"})
+     */
+    private $commentaires;
+
     public function __construct()
     {
         $this->roles=array('ROLE_USER');
+        $this->offres=new ArrayCollection();
+        $this->commentaires=new ArrayCollection();
     }
 
     /**
@@ -165,8 +184,45 @@ class User implements UserInterface
     {
     }
 
+    /**
+     * @param Offre $offre
+     *
+     */
+    public function addOffres(Offre $offre)
+    {
+        $offre->setAuteur($this);
+        if(!$this->offres->contains($offre))
+            $this->offres->add($offre);
+    }
 
+    /**
+     * @return ArrayCollection
+     *
+     */
+    public function getOffres()
+    {
+        return $this->offres;
+    }
 
+    /**
+     * @param Commentaire $commentaire
+     *
+     */
+    public function addCommentaires(Commentaire $commentaire)
+    {
+        $commentaire->setAuteur($this);
+        if(!$this->commentaires->contains($commentaire))
+            $this->commentaires->add($commentaire);
 
+    }
+
+    /**
+     * @return ArrayCollection
+     *
+     */
+    public function getCommentaires()
+    {
+        return $this->offres;
+    }
 
 }
