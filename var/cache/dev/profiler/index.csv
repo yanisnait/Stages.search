@@ -2563,3 +2563,14 @@ de1aad,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/logout,15198
 f8fdcb,127.0.0.1,POST,http://localhost/stages.search/web/app_dev.php/login_check,1519854414,,302
 e99217,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DSSPlatformBundle%253AAdvert%253Amenu,1519854415,817c31,200
 817c31,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform,1519854415,,200
+eea9db,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/logout,1519854810,,302
+5a166e,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/,1519854810,,200
+f341c7,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/,1519854827,,200
+25e43a,127.0.0.1,POST,http://localhost/stages.search/web/app_dev.php/login_check,1519854844,,302
+21de43,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DSSPlatformBundle%253AAdvert%253Amenu,1519854845,4b70a7,200
+4b70a7,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform,1519854845,,200
+c61043,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/logout,1519854847,,302
+59bcc9,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/,1519854848,,200
+be1381,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/,1519854863,,200
+f46dc7,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/signup,1519854876,,200
+f8f983,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/signup,1519854882,,200
