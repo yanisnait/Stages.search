@@ -6,7 +6,10 @@ login:
     path: /
     defaults:
         _controller: SSUserBundle:User:signin
-
+signup:
+    path: /signup
+    defaults:
+        _controller: SSUserBundle:User:signup
 login_check:
     path: /login_check
 

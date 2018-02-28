@@ -148,6 +148,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'SS\\UserBundle\\Controller\\UserController::signinAction',  '_route' => 'login',);
         }
 
+        // signup
+        if ('/signup' === $pathinfo) {
+            return array (  '_controller' => 'SS\\UserBundle\\Controller\\UserController::signupAction',  '_route' => 'signup',);
+        }
+
         // login_check
         if ('/login_check' === $pathinfo) {
             return array('_route' => 'login_check');

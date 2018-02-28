@@ -50,6 +50,10 @@ class User implements UserInterface
      */
     private $roles;
 
+    public function __construct()
+    {
+        $this->roles=array('ROLE_USER');
+    }
 
     /**
      * Get id.

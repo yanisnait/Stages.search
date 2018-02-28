@@ -621,7 +621,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>pjI3qWUfkZ3+T+2ItcBlo1</argument>
+      <argument>wNSVUtg+dusu+uF1vcksGj</argument>
       <argument>C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www\Stages.search\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -631,7 +631,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>pjI3qWUfkZ3+T+2ItcBlo1</argument>
+      <argument>wNSVUtg+dusu+uF1vcksGj</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -1801,7 +1801,7 @@
       <argument type="service" id="service_locator.b26ba86bc27509cd7fe234d909905986"/>
       <argument type="iterator">
         <argument key="security.firewall.map.context.dev" type="service" id="security.request_matcher.5314eeb91110adf24b9b678372bb11bbe00e8858c519c088bfb65f525181ad3bf573fd1d"/>
-        <argument key="security.firewall.map.context.main_login" type="service" id="security.request_matcher.a9435acbb6cb6051c596f00fb44b9f925bbfe765ac03d0a6201d7a57dbc7a356376e7478"/>
+        <argument key="security.firewall.map.context.main_login" type="service" id="security.request_matcher.cdf952f13b04ad074ce0613274b68bf45fe3831d33c963121078373bd149ce5a67f21928"/>
         <argument key="security.firewall.map.context.main" type="service" id="security.request_matcher.a64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60db"/>
       </argument>
     </service>
@@ -2201,7 +2201,7 @@
     <service id="security.firewall.map.config.main_login" class="Symfony\Bundle\SecurityBundle\Security\FirewallConfig" public="false">
       <argument>main_login</argument>
       <argument>security.user_checker</argument>
-      <argument>security.request_matcher.a9435acbb6cb6051c596f00fb44b9f925bbfe765ac03d0a6201d7a57dbc7a356376e7478</argument>
+      <argument>security.request_matcher.cdf952f13b04ad074ce0613274b68bf45fe3831d33c963121078373bd149ce5a67f21928</argument>
       <argument>true</argument>
       <argument>false</argument>
       <argument>security.user.provider.concrete.in_memory</argument>
@@ -2213,8 +2213,8 @@
         <argument>anonymous</argument>
       </argument>
     </service>
-    <service id="security.request_matcher.a9435acbb6cb6051c596f00fb44b9f925bbfe765ac03d0a6201d7a57dbc7a356376e7478" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-      <argument>^/$</argument>
+    <service id="security.request_matcher.cdf952f13b04ad074ce0613274b68bf45fe3831d33c963121078373bd149ce5a67f21928" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/($|signup$)</argument>
     </service>
     <service id="security.context_listener.0" class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2229,12 +2229,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main_login" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a968b8679d657.72362136</argument>
+      <argument>5a969cb37146e7.64025772</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main_login" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a968b8679d657.72362136</argument>
+      <argument>5a969cb37146e7.64025772</argument>
     </service>
     <service id="security.exception_listener.main_login" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3649,7 +3649,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>F6b9LI0m7X</argument>
       <argument>0</argument>
-      <argument>pjI3qWUfkZ3+T+2ItcBlo1</argument>
+      <argument>wNSVUtg+dusu+uF1vcksGj</argument>
       <argument>C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www\Stages.search\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3657,7 +3657,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>+FJOWM91TW</argument>
       <argument>0</argument>
-      <argument>pjI3qWUfkZ3+T+2ItcBlo1</argument>
+      <argument>wNSVUtg+dusu+uF1vcksGj</argument>
       <argument>C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www\Stages.search\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3665,7 +3665,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>m27Gln5+Tw</argument>
       <argument>0</argument>
-      <argument>pjI3qWUfkZ3+T+2ItcBlo1</argument>
+      <argument>wNSVUtg+dusu+uF1vcksGj</argument>
       <argument>C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www\Stages.search\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3673,7 +3673,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>MMlcy6hLl-</argument>
       <argument>0</argument>
-      <argument>pjI3qWUfkZ3+T+2ItcBlo1</argument>
+      <argument>wNSVUtg+dusu+uF1vcksGj</argument>
       <argument>C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www\Stages.search\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

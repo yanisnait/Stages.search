@@ -16,11 +16,11 @@ class __TwigTemplate_8277bfe9e0891b368f9a323056fa1c5882f8bc8fb87e0073935c087ab39
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_91f292f6f4ed5b2b7cd6c6e70c05fe455c0b4e0477de13708b42c2ae2b853f36 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_91f292f6f4ed5b2b7cd6c6e70c05fe455c0b4e0477de13708b42c2ae2b853f36->enter($__internal_91f292f6f4ed5b2b7cd6c6e70c05fe455c0b4e0477de13708b42c2ae2b853f36_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SSUserBundle:Security:login.html.twig"));
+        $__internal_72053569cf51ed1e5508957baeece22b9827934cdca23cb52f4f53a258e3c02d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_72053569cf51ed1e5508957baeece22b9827934cdca23cb52f4f53a258e3c02d->enter($__internal_72053569cf51ed1e5508957baeece22b9827934cdca23cb52f4f53a258e3c02d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SSUserBundle:Security:login.html.twig"));
 
-        $__internal_c2bb209cd3377dd7c2dc0a23276266b29e73712b07099fdc1976fad7ae8a178d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_c2bb209cd3377dd7c2dc0a23276266b29e73712b07099fdc1976fad7ae8a178d->enter($__internal_c2bb209cd3377dd7c2dc0a23276266b29e73712b07099fdc1976fad7ae8a178d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SSUserBundle:Security:login.html.twig"));
+        $__internal_d5c9b39f919b6f5b495ade5e86ec296091f310635b66efd9ae798c6fce0ac3bc = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d5c9b39f919b6f5b495ade5e86ec296091f310635b66efd9ae798c6fce0ac3bc->enter($__internal_d5c9b39f919b6f5b495ade5e86ec296091f310635b66efd9ae798c6fce0ac3bc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SSUserBundle:Security:login.html.twig"));
 
         // line 2
         echo "
@@ -31,20 +31,20 @@ class __TwigTemplate_8277bfe9e0891b368f9a323056fa1c5882f8bc8fb87e0073935c087ab39
         // line 5
         $this->displayBlock('body', $context, $blocks);
         
-        $__internal_91f292f6f4ed5b2b7cd6c6e70c05fe455c0b4e0477de13708b42c2ae2b853f36->leave($__internal_91f292f6f4ed5b2b7cd6c6e70c05fe455c0b4e0477de13708b42c2ae2b853f36_prof);
+        $__internal_72053569cf51ed1e5508957baeece22b9827934cdca23cb52f4f53a258e3c02d->leave($__internal_72053569cf51ed1e5508957baeece22b9827934cdca23cb52f4f53a258e3c02d_prof);
 
         
-        $__internal_c2bb209cd3377dd7c2dc0a23276266b29e73712b07099fdc1976fad7ae8a178d->leave($__internal_c2bb209cd3377dd7c2dc0a23276266b29e73712b07099fdc1976fad7ae8a178d_prof);
+        $__internal_d5c9b39f919b6f5b495ade5e86ec296091f310635b66efd9ae798c6fce0ac3bc->leave($__internal_d5c9b39f919b6f5b495ade5e86ec296091f310635b66efd9ae798c6fce0ac3bc_prof);
 
     }
 
     public function block_body($context, array $blocks = array())
     {
-        $__internal_0a4c467509640504c757d6e4ac8a621cb93953d862190124034bc37dcdb62091 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_0a4c467509640504c757d6e4ac8a621cb93953d862190124034bc37dcdb62091->enter($__internal_0a4c467509640504c757d6e4ac8a621cb93953d862190124034bc37dcdb62091_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_93cf7a4765f4e0ae63680998c47f4563a36c42a2eadf2c45d83171cbe58cbe05 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_93cf7a4765f4e0ae63680998c47f4563a36c42a2eadf2c45d83171cbe58cbe05->enter($__internal_93cf7a4765f4e0ae63680998c47f4563a36c42a2eadf2c45d83171cbe58cbe05_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_108d74862deef06f860f9304b389662243290a977c4086fa0e9ee7a35c18579f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_108d74862deef06f860f9304b389662243290a977c4086fa0e9ee7a35c18579f->enter($__internal_108d74862deef06f860f9304b389662243290a977c4086fa0e9ee7a35c18579f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_1d6653634c14077432e7f954c7e09b24c68720c01523a0cb8ea0438d5c867b50 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_1d6653634c14077432e7f954c7e09b24c68720c01523a0cb8ea0438d5c867b50->enter($__internal_1d6653634c14077432e7f954c7e09b24c68720c01523a0cb8ea0438d5c867b50_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
         echo "
@@ -60,23 +60,6 @@ class __TwigTemplate_8277bfe9e0891b368f9a323056fa1c5882f8bc8fb87e0073935c087ab39
         }
         // line 11
         echo "
-    ";
-        // line 13
-        echo "    <!-- <form action=\"";
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login_check");
-        echo "\" method=\"post\">
-        <label for=\"username\">Login :</label>
-        <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
-        // line 15
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new Twig_Error_Runtime('Variable "last_username" does not exist.', 15, $this->getSourceContext()); })()), "html", null, true);
-        echo "\" />
-        <br>
-        <label for=\"password\">Mot de passe :</label>
-        <input type=\"password\" id=\"password\" name=\"_password\" />
-        <br />
-        <input type=\"submit\" value=\"Connexion\" />
-    </form> -->
-
     <link href=\"//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">
     <script src=\"//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
     <script src=\"//code.jquery.com/jquery-1.11.1.min.js\"></script>
@@ -94,14 +77,14 @@ class __TwigTemplate_8277bfe9e0891b368f9a323056fa1c5882f8bc8fb87e0073935c087ab39
                     <div class=\"col-xs-6\">
                         <div class=\"well\">
                             <form id=\"loginForm\" action=\"";
-        // line 39
+        // line 28
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login_check");
         echo "\" method=\"post\" novalidate=\"novalidate\">
                                 <div class=\"form-group\">
                                     <label for=\"username\" class=\"control-label\">Nom d'utilisateur</label>
                                     <input type=\"text\" class=\"form-control\" id=\"username\" name=\"_username\" value=\"";
-        // line 42
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new Twig_Error_Runtime('Variable "last_username" does not exist.', 42, $this->getSourceContext()); })()), "html", null, true);
+        // line 31
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new Twig_Error_Runtime('Variable "last_username" does not exist.', 31, $this->getSourceContext()); })()), "html", null, true);
         echo "\" required=\"\" title=\"Please enter you username\" placeholder=\"example@gmail.com\">
                                     <span class=\"help-block\"></span>
                                 </div>
@@ -130,8 +113,8 @@ class __TwigTemplate_8277bfe9e0891b368f9a323056fa1c5882f8bc8fb87e0073935c087ab39
                             <li><span class=\"fa fa-check text-success\"></span> Aidez les autres étudiants</li>
                         </ul>
                         <p><a href=\"";
-        // line 69
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
+        // line 58
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("signup");
         echo "\" class=\"btn btn-info btn-block\">S'inscrire mainteant !</a></p>
                     </div>
                 </div>
@@ -140,10 +123,10 @@ class __TwigTemplate_8277bfe9e0891b368f9a323056fa1c5882f8bc8fb87e0073935c087ab39
     </div>
 ";
         
-        $__internal_108d74862deef06f860f9304b389662243290a977c4086fa0e9ee7a35c18579f->leave($__internal_108d74862deef06f860f9304b389662243290a977c4086fa0e9ee7a35c18579f_prof);
+        $__internal_1d6653634c14077432e7f954c7e09b24c68720c01523a0cb8ea0438d5c867b50->leave($__internal_1d6653634c14077432e7f954c7e09b24c68720c01523a0cb8ea0438d5c867b50_prof);
 
         
-        $__internal_0a4c467509640504c757d6e4ac8a621cb93953d862190124034bc37dcdb62091->leave($__internal_0a4c467509640504c757d6e4ac8a621cb93953d862190124034bc37dcdb62091_prof);
+        $__internal_93cf7a4765f4e0ae63680998c47f4563a36c42a2eadf2c45d83171cbe58cbe05->leave($__internal_93cf7a4765f4e0ae63680998c47f4563a36c42a2eadf2c45d83171cbe58cbe05_prof);
 
     }
 
@@ -154,7 +137,7 @@ class __TwigTemplate_8277bfe9e0891b368f9a323056fa1c5882f8bc8fb87e0073935c087ab39
 
     public function getDebugInfo()
     {
-        return array (  134 => 69,  104 => 42,  98 => 39,  71 => 15,  65 => 13,  62 => 11,  56 => 9,  53 => 8,  50 => 6,  32 => 5,  29 => 4,  26 => 2,);
+        return array (  117 => 58,  87 => 31,  81 => 28,  62 => 11,  56 => 9,  53 => 8,  50 => 6,  32 => 5,  29 => 4,  26 => 2,);
     }
 
     public function getSourceContext()
@@ -169,17 +152,6 @@ class __TwigTemplate_8277bfe9e0891b368f9a323056fa1c5882f8bc8fb87e0073935c087ab39
     {% if error %}
         <div class=\"alert alert-danger\">{{ error.message }}</div>
     {% endif %}
-
-    {# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu #}
-    <!-- <form action=\"{{ path('login_check') }}\" method=\"post\">
-        <label for=\"username\">Login :</label>
-        <input type=\"text\" id=\"username\" name=\"_username\" value=\"{{ last_username }}\" />
-        <br>
-        <label for=\"password\">Mot de passe :</label>
-        <input type=\"password\" id=\"password\" name=\"_password\" />
-        <br />
-        <input type=\"submit\" value=\"Connexion\" />
-    </form> -->
 
     <link href=\"//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">
     <script src=\"//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
@@ -227,7 +199,7 @@ class __TwigTemplate_8277bfe9e0891b368f9a323056fa1c5882f8bc8fb87e0073935c087ab39
                             <li><span class=\"fa fa-check text-success\"></span> Commenter les annonces</li>
                             <li><span class=\"fa fa-check text-success\"></span> Aidez les autres étudiants</li>
                         </ul>
-                        <p><a href=\"{{ path('login') }}\" class=\"btn btn-info btn-block\">S'inscrire mainteant !</a></p>
+                        <p><a href=\"{{ path('signup') }}\" class=\"btn btn-info btn-block\">S'inscrire mainteant !</a></p>
                     </div>
                 </div>
             </div>
