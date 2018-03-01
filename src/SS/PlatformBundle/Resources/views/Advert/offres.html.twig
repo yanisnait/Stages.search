@@ -1,0 +1,44 @@
+{# src/SS/PlatformBundle/Resources/views/Advert/index.html.twig #}
+
+{% extends "SSPlatformBundle::layout.html.twig" %}
+
+
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %}
+
+{% block ssplatform_body %}
+
+    {% endfor %}
+    <h2>Liste des annonces</h2>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Intitulé</th>
+            <th scope="col">Posté par</th>
+            <th scope="col">Date publication</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for advert in listAdverts %}
+            <tr>
+                <th>
+                    {{ advert.id }}
+                </th>
+                <td><a href="{{ path('ss_platform_view', {'id': advert.id}) }}">
+                        {{ advert.intitule }}
+                    </a></td>
+                <td>Test</td>
+                <td>{{ advert.dateOffre|date('d/m/Y') }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>Aucune annonce publiée</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}
