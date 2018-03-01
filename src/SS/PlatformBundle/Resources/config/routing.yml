@@ -15,7 +15,7 @@ ss_platform_view:
     requirements:
         id: \d+
 
-ss_platform_add:
+ss_platform_addOffre:
     path:      /addO
     defaults:
         _controller: SSPlatformBundle:Advert:addO
@@ -37,3 +37,7 @@ ss_platform_delete:
     defaults:
         _controller: SSPlatformBundle:Advert:deleteO
 
+ss_platform_addCommmentaire:
+    path:      /addC/{id}
+    defaults:
+        _controller: SSPlatformBundle:Advert:addC

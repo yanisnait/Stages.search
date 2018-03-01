@@ -2,6 +2,7 @@
 
 namespace SS\PlatformBundle\Controller;
 
+use SS\PlatformBundle\Entity\Commentaire;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -42,26 +43,55 @@ class AdvertController extends Controller
 
     }
 
-    public function viewAction($id)
+    public function viewAction($id,Request $request)
     {
         // On récupère l'objet voulu
         $offre = $this->getDoctrine()
             ->getManager()
             ->find('SSPlatformBundle:Offre', $id);
 
+        $commentaire = new Commentaire();
+
+        $commentBox = $this->get('form.factory')->createBuilder(FormType::class, $commentaire)
+            ->add('contenu', TextareaType::class, array('label' => 'Ton commentaire'))
+            ->add('Publier', SubmitType::class)
+            ->getForm();
+
         // $advert est donc une instance de OC\PlatformBundle\Entity\Advert
         // ou null si l'id $id  n'existe pas, d'où ce if :
         if (null === $offre) {
-            throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+            throw new NotFoundHttpException("L'annonce d'id " . $id . " n'existe pas.");
         }
 
-        $entreprise=$offre->getEntreprise();
-        $logo=$entreprise->getLogo();
+        $entreprise = $offre->getEntreprise();
+        $logo = $entreprise->getLogo();
 
-        // Le render ne change pas, on passait avant un tableau, maintenant un objet
-        return $this->render('SSPlatformBundle:Advert:view.html.twig', array(
-            'offre' => $offre,'logo'=>$logo));
-    }
+        if ($request->isMethod('POST')) {
+            $commentBox->handleRequest($request);
+
+            if ($commentBox->isValid()) {
+                $user = $this->getUser();
+                $user->addCommentaires($commentaire);
+                $offre->addAvis($commentaire);
+
+                $em = $this->getDoctrine()->getManager();
+
+                $em->persist($commentaire);
+                $em->flush();
+
+                $request->getSession()->getFlashBag()->add('notice_C', 'Commentaire bien enregistré.');
+
+                // Le render ne change pas, on passait avant un tableau, maintenant un objet
+                return $this->redirectToRoute('ss_platform_view', array('id' => $offre->getId()));
+
+            }
+
+        }
+            // Le render ne change pas, on passait avant un tableau, maintenant un objet
+            return $this->render('SSPlatformBundle:Advert:view.html.twig', array(
+                'offre' => $offre, 'logo' => $logo, 'commentBox' => $commentBox->createView()));
+        }
+
 
     public function addOAction(Request $request)
     {
@@ -245,7 +275,49 @@ class AdvertController extends Controller
         ));
     }
 
+    public function addCAction($id, Request $request)
+    {
+        $offre=$this->getDoctrine()->getManager()->find('SSPlatformBundle:Offre',$id);
 
+        if (null === $offre) {
+            throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+        }
+
+        $commentaire=new Commentaire();
+
+        $commentBox=$this->get('form.factory')->createBuilder(FormType::class,$commentaire)
+            ->add('contenu',TextareaType::class,array('label'=>'Ton commentaire'))
+            ->add('Publier',SubmitType::class)
+            ->getForm();
+
+        if($request->isMethod('POST'))
+        {
+            $commentBox->handleRequest($request);
+
+            if($commentBox->is_Valid())
+            {
+                $user=$this->getUser();
+                $user->addCommentaires($commentaire);
+                $offre->addAvis($commentaire);
+
+                $em=$this->getDoctrine()->getManager();
+
+                $em->persist($commentaire);
+                $em->flush();
+
+                $request->getSession()->getFlashBag()->add('notice_C', 'Commentaire bien enregistré.');
+
+                // Le render ne change pas, on passait avant un tableau, maintenant un objet
+                return $this->redirectToRoute('ss_platform_view',array('id' => $offre->getId()));
+
+            }
+            return $this->redirectToRoute('ss_platform_view',array('id' => $offre->getId()));
+
+        }
+
+
+
+    }
 	
 	
 }

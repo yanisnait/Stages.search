@@ -23,7 +23,17 @@ Affichage de l'annonce n°{{ offre.id }}
     <a href="{{ path('ss_platform_delete',{'id':offre.id}) }}" type="submit">Supprimer</a>
 
 </p>
+    {% for message in app.session.flashbag.get('notice_C') %}
+        <p>Message flash : {{ message }}</p>
+    {% endfor %}
+    {{ form(commentBox) }}
 
+    {% for coms in offre.avis %}
+
+        {{ coms.contenu }}
+    {% else %}
+    Pas de commentaires pour cette offre !
+    {% endfor %}
 
 
 {% endblock %}
