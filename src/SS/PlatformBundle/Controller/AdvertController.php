@@ -274,5 +274,10 @@ class AdvertController extends Controller
         ));
     }
 
+    public function offresAction()
+    {
+
+    }
+
 }
 ?>

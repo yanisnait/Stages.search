@@ -4,10 +4,35 @@
 
 
 {% block title %}
-  Accueil - {{ parent() }}
+    Accueil - {{ parent() }}
 {% endblock %}
 
 {% block ssplatform_body %}
+    <div class="container w">
+        <div class="row centered">
+            <br><br>
+            <div class="col-lg-4">
+                <i class="fa fa-map-marker"></i>
+                <h4>OFFRES</h4>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
+            </div><!-- col-lg-4 -->
+
+            <div class="col-lg-4">
+                <i class="fa fa-book"></i>
+                <h4>ENTREPRISES</h4>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
+            </div><!-- col-lg-4 -->
+
+            <div class="col-lg-4">
+                <i class="fa fa-trophy"></i>
+                <h4>ESPACE MEMBRE</h4>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
+            </div><!-- col-lg-4 -->
+        </div><!-- row -->
+        <br>
+        <br>
+    </div><!-- container -->
+
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -15,7 +40,7 @@
     {% for message in app.session.flashbag.get('info') %}
         <p>Message flash : {{ message }}</p>
     {% endfor %}
-  <h2>Liste des annonces</h2>
+    <h2>Liste des annonces</h2>
     <table class="table table-striped">
         <thead class="thead-dark">
         <tr>
@@ -26,35 +51,35 @@
         </tr>
         </thead>
         <tbody>
-      {% for advert in listAdverts %}
-          <tr>
-              <th>
-                  {{ advert.id }}
-              </th>
-              <td><a href="{{ path('ss_platform_view', {'id': advert.id}) }}">
-                      {{ advert.intitule }}
-                  </a></td>
-              <td>{{ advert.auteur.username}}</td>
-              <td>{{ advert.dateOffre|date('d/m/Y') }}</td>
-          </tr>
-      {% else %}
-        <tr>
-            <td>Aucune annonce publiée</td>
-        </tr>
-      {% endfor %}
-      {% for advert in listOffres %}
-      <tr>
-          <th>
-          </th>
-          <td><a href="{{ path('ss_platform_view', {'id': advert.id}) }}">
+        {% for advert in listAdverts %}
+            <tr>
+                <th>
+                    {{ advert.id }}
+                </th>
+                <td><a href="{{ path('ss_platform_view', {'id': advert.id}) }}">
+                        {{ advert.intitule }}
+                    </a></td>
+                <td>Test</td>
+                <td>{{ advert.dateOffre|date('d/m/Y') }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>Aucune annonce publiée</td>
+            </tr>
+        {% endfor %}
+        {% for advert in listOffres %}
+            <tr>
+                <th>
+                </th>
+                <td><a href="{{ path('ss_platform_view', {'id': advert.id}) }}">
 
-                Mes offres({{ total }} ) :   {{ advert.intitule }}
-              </a></td>
-          <td>{{ advert.auteur.username}}</td>
-          <td>{{ advert.dateOffre|date('d/m/Y') }}</td>
-      </tr>
+                        Mes offres({{ total }} ) :   {{ advert.intitule }}
+                    </a></td>
+                <td>Test</td>
+                <td>{{ advert.dateOffre|date('d/m/Y') }}</td>
+            </tr>
         {% endfor %}
         </tbody>
-  </table>
+    </table>
 
 {% endblock %}

@@ -36,3 +36,8 @@ ss_platform_delete:
     path:      /delete/{id}
     defaults:
         _controller: SSPlatformBundle:Advert:deleteO
+        
+ss_platform_offres:
+    path: /offres
+    defaults:
+        _controller: SSPlatformBundle:Advert:offres

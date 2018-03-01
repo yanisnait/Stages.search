@@ -2826,3 +2826,14 @@ b44efe,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/_fragment?_p
 e374c8,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform/advert/29,1519915114,,200
 b06340,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DSSPlatformBundle%253AAdvert%253Amenu,1519915166,2bee9b,200
 2bee9b,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform/advert/29,1519915166,,200
+5329a3,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform,1519920253,5e2026,200
+5e2026,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform,1519920253,,500
+f59da9,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/,1519920259,,200
+d400a3,127.0.0.1,POST,http://localhost/stages.search/web/app_dev.php/login_check,1519920352,,302
+faaa30,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform,1519920353,d6f89a,200
+d6f89a,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform,1519920353,,500
+ccc686,127.0.0.1,POST,http://localhost/stages.search/web/app_dev.php/login_check,1519920390,,302
+5d3757,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform,1519920390,e69532,200
+e69532,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform,1519920390,,500
+3944c6,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform,1519920467,,200
+79f8d4,127.0.0.1,GET,http://localhost/stages.search/web/app_dev.php/platform/advert/30,1519920612,,200

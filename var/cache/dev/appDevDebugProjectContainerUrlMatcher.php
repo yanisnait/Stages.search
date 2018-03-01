@@ -137,6 +137,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'ss_platform_delete')), array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::deleteOAction',));
             }
 
+            // ss_platform_offres
+            if ('/platform/offres' === $pathinfo) {
+                return array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::offresAction',  '_route' => 'ss_platform_offres',);
+            }
+
         }
 
         // login
