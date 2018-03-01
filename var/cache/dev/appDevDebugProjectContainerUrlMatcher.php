@@ -109,12 +109,12 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'ss_platform_home')), array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::indexAction',  'page' => 1,));
             }
 
-            // ss_platform_view
-            if (0 === strpos($pathinfo, '/platform/advert') && preg_match('#^/platform/advert/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ss_platform_view')), array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::viewAction',));
-            }
+            if (0 === strpos($pathinfo, '/platform/ad')) {
+                // ss_platform_view
+                if (0 === strpos($pathinfo, '/platform/advert') && preg_match('#^/platform/advert/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ss_platform_view')), array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::viewAction',));
+                }
 
-            if (0 === strpos($pathinfo, '/platform/add')) {
                 // ss_platform_addOffre
                 if ('/platform/addO' === $pathinfo) {
                     return array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::addOAction',  '_route' => 'ss_platform_addOffre',);
@@ -123,11 +123,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 // ss_platform_addEntreprise
                 if ('/platform/addE' === $pathinfo) {
                     return array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::addEAction',  '_route' => 'ss_platform_addEntreprise',);
-                }
-
-                // ss_platform_addCommmentaire
-                if (0 === strpos($pathinfo, '/platform/addC') && preg_match('#^/platform/addC/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ss_platform_addCommmentaire')), array (  '_controller' => 'SS\\PlatformBundle\\Controller\\AdvertController::addCAction',));
                 }
 
             }

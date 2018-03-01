@@ -8,6 +8,9 @@ Affichage de l'annonce n°{{ offre.id }}
 {% endblock %}
 
 {% block ssplatform_body %}
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <div>
     {# On affiche tous les messages flash dont le nom est « info » #}
     {% for message in app.session.flashbag.get('notice_O') %}
@@ -29,11 +32,30 @@ Affichage de l'annonce n°{{ offre.id }}
     {{ form(commentBox) }}
 
     {% for coms in offre.avis %}
+        <!------ Include the above in your HEAD tag ---------->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1">
+                </div><!-- /col-sm-1 -->
+                <div class="col-sm-5">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong>{{coms.auteur.username}}</strong> <span class="text-muted">publié le {{ coms.date|date("m/d/Y à H:i:s") }}</span>
+                        </div>
+                        <div class="panel-body">
+                            {{ coms.contenu }}
+                        </div><!-- /panel-body -->
+                    </div><!-- /panel panel-default -->
+                </div><!-- /col-sm-5 -->
 
-        {{ coms.contenu }}
+            </div><!-- /row -->
+        </div><!-- /container -->
     {% else %}
     Pas de commentaires pour cette offre !
     {% endfor %}
+
+
+
 
 
 {% endblock %}
