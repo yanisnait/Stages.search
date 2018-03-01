@@ -37,7 +37,7 @@ class AdvertController extends Controller
             // Ici, on récupérera la liste des annonces, puis on la passera au template
             // Notre liste d'annonce en dur
 
-            $listAdverts = $this->getDoctrine()->getManager()->getRepository('SSPlatformBundle:Offre')->findAll();
+        $listAdverts = $this->getDoctrine()->getManager()->getRepository('SSPlatformBundle:Offre')->findBy(array(),array('dateOffre' => 'desc'),2,0 );
 
         return $this->render('SSPlatformBundle:Advert:index.html.twig', array('listAdverts' => $listAdverts,'listOffres'=>$listOffres,'total'=>$total));
 
@@ -260,24 +260,31 @@ class AdvertController extends Controller
         return $this->redirectToRoute('ss_platform_home');
     }
 
-    public function menuAction($limit)
+
+
+    public function offresAction()
     {
+
         // On fixe en dur une liste ici, bien entendu par la suite
         // on la récupérera depuis la BDD !
         $listAdverts = $this->getDoctrine()->getManager()->getRepository('SSPlatformBundle:Offre')->findAll();
 
 
-        return $this->render('SSPlatformBundle:Advert:menu.html.twig', array(
+        return $this->render('SSPlatformBundle:Advert:offres.html.twig', array(
             // Tout l'intérêt est ici : le contrôleur passe
             // les variables nécessaires au template !
-            'listAdverts' => $listAdverts
-        ));
+            'listAdverts' => $listAdverts));
+
     }
 
-    public function offresAction()
+    public function entreprisesAction()
     {
+        $listentreprises = $this->getDoctrine()->getManager()->getRepository('SSPlatformBundle:Entreprise')->findAll();
 
+        return $this->render('SSPlatformBundle:Advert:Entreprises.html.twig', array(
+            // Tout l'intérêt est ici : le contrôleur passe
+            // les variables nécessaires au template !
+            'listentreprises' => $listentreprises));
     }
-
 }
 ?>

@@ -1,0 +1,38 @@
+{# src/SS/PlatformBundle/Resources/views/Advert/index.html.twig #}
+
+{% extends "SSPlatformBundle::layout.html.twig" %}
+
+
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %}
+
+{% block ssplatform_body %}
+
+
+    <h2>Liste des entreprises</h2>
+
+    <table class="table table-striped"  >
+
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col" >#</th>
+            <th scope="col"   >Nom des entreprises </th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for entreprises in listentreprises %}
+            <tr>
+                <th>
+                    {{ entreprises.id }}
+                </th>
+                <td><a href="{{ path('ss_platform_view', {'id': entreprises.id}) }}">
+                        {{ entreprises.nom }}
+                    </a></td>
+{% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

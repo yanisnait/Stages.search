@@ -67,18 +67,7 @@
                 <td>Aucune annonce publiée</td>
             </tr>
         {% endfor %}
-        {% for advert in listOffres %}
-            <tr>
-                <th>
-                </th>
-                <td><a href="{{ path('ss_platform_view', {'id': advert.id}) }}">
 
-                        Mes offres({{ total }} ) :   {{ advert.intitule }}
-                    </a></td>
-                <td>Test</td>
-                <td>{{ advert.dateOffre|date('d/m/Y') }}</td>
-            </tr>
-        {% endfor %}
         </tbody>
     </table>
 
