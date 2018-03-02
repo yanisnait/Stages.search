@@ -260,8 +260,6 @@ class AdvertController extends Controller
         return $this->redirectToRoute('ss_platform_home');
     }
 
-
-
     public function offresAction()
     {
 
@@ -286,5 +284,22 @@ class AdvertController extends Controller
             // les variables nécessaires au template !
             'listentreprises' => $listentreprises));
     }
+
+
+    public function searchOffresAction()
+    {
+
+        $searchForm=$this->get('form.factory')->createBuilder(FormType::class)
+            ->add('Annee',ChoiceType::class)
+            ->add('Domaine',ChoiceType::class)
+            ->add('Entreprise',ChoiceType::class)
+            ->add('profil',ChoiceType::class)
+            ->add('intitule',TextType::class)
+            ->getForm();
+
+        return $this->render('SSPlatformBundle:Advert:searchform.html.twig',array('searchForm'=>$searchForm->createView()));
+    }
+
+
 }
 ?>

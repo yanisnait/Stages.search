@@ -42,7 +42,12 @@ ss_platform_offres:
     defaults:
         _controller: SSPlatformBundle:Advert:offres
 
-ss_platform_Entreprises:
+ss_platform_entreprises:
     path: /entreprises
     defaults:
         _controller: SSPlatformBundle:Advert:Entreprises
+
+ss_platform_searchOffres:
+    path: /search
+    defaults:
+        _controller: SSPlatformBundle:Advert:searchOffres
