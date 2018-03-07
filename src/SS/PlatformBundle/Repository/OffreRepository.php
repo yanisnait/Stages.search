@@ -10,4 +10,23 @@ namespace SS\PlatformBundle\Repository;
  */
 class OffreRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findOffresBy($annee,$profil,$domaine,$intitule)
+    {
+        $query=$this->createQueryBuilder('o');
+
+        $query
+            ->where('o.profil LIKE :profil')
+            ->setParameter('profil',$profil.'%')
+            ->andWhere('o.dateOffre LIKE :annee')
+            ->setParameter('annee',$annee.'%')
+            ->andWhere('o.domaine LIKE :domaine')
+            ->setParameter('domaine','%'.$domaine.'%')
+            ->andWhere('o.intitule LIKE :intitule')
+            ->setParameter('intitule','%'.$intitule.'%')
+           ;
+
+        return $query->getQuery()->getResult();
+    }
+
 }

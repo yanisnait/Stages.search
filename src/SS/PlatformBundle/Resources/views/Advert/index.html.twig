@@ -40,7 +40,7 @@
     {% for message in app.session.flashbag.get('info') %}
         <p>Message flash : {{ message }}</p>
     {% endfor %}
-    <h2>Liste des annonces</h2>
+    <h2>Dernières annonces</h2>
     <table class="table table-striped">
         <thead class="thead-dark">
         <tr>
@@ -59,7 +59,7 @@
                 <td><a href="{{ path('ss_platform_view', {'id': advert.id}) }}">
                         {{ advert.intitule }}
                     </a></td>
-                <td>Test</td>
+                <td>{{ advert.auteur.username}}</td>
                 <td>{{ advert.dateOffre|date('d/m/Y') }}</td>
             </tr>
         {% else %}

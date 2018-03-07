@@ -14,6 +14,15 @@ class LoadUser implements FixtureInterface
         // Les noms d'utilisateurs à créer
         $listNames = array('Alexandre', 'Marine', 'Anna');
 
+        $admin=new User();
+        $admin->setUsername("admin");
+        $admin->setPassword("admin");
+        $admin->setSalt('');
+        $admin->setRoles(  array('ROLE_ADMIN'));
+
+        $manager->persist($admin);
+
+
         foreach ($listNames as $name) {
             // On crée l'utilisateur
             $user = new User;

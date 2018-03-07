@@ -9,6 +9,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use SS\PlatformBundle\Entity\Offre;
 use SS\PlatformBundle\Entity\Entreprise;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -285,21 +286,103 @@ class AdvertController extends Controller
             'listentreprises' => $listentreprises));
     }
 
-
-    public function searchOffresAction()
+    public function searchOffresAction(Request $request)
     {
-
         $searchForm=$this->get('form.factory')->createBuilder(FormType::class)
-            ->add('Annee',ChoiceType::class)
-            ->add('Domaine',ChoiceType::class)
-            ->add('Entreprise',ChoiceType::class)
-            ->add('profil',ChoiceType::class)
-            ->add('intitule',TextType::class)
+           ->add('Annee',TextType::class,['required'=>false])
+            ->add('Domaine',TextType::class,['required'=>false])
+            ->add('Profil',TextType::class,['required'=>false])
+            ->add('Intitule',TextType::class,['required'=>false])
+            ->add('Rechercher',SubmitType::class)
             ->getForm();
 
-        return $this->render('SSPlatformBundle:Advert:searchform.html.twig',array('searchForm'=>$searchForm->createView()));
+
+        if ($request->isMethod('POST')) {
+
+            $searchForm->handleRequest($request);
+           // $searchForm['Entreprise']->setData(" ") ;
+            // On peut ne pas définir ni la date ni la publication,
+            // car ces attributs sont définis automatiquement dans le constructeur
+            if ($searchForm->isValid()) {
+
+
+                $listOffres=$this->getDoctrine()->getManager()->getRepository('SSPlatformBundle:Offre')->findOffresBy($searchForm['Annee']->getData(),$searchForm['Profil']->getData(),$searchForm['Domaine']->getData(),$searchForm['Intitule']->getData());
+
+                return $this->render('SSPlatformBundle:Advert:searchform.html.twig',array('listOffres'=>$listOffres,'rslt'=>true));
+
+            }
+
+        }
+
+        return $this->render('SSPlatformBundle:Advert:searchform.html.twig',array('searchForm'=>$searchForm->createView(),'rslt'=> false));
     }
 
+    public function offresEAction($id)
+    {
+        $entreprise=$this->getDoctrine()->getManager()->find('SSPlatformBundle:Entreprise',$id);
+
+        $listAdvert=$entreprise->getOffres();
+
+        return $this->render('SSPlatformBundle:Advert:offresE.html.twig',array('listAdverts'=>$listAdvert));
+
+
+    }
+
+    public function editCAction($id, Request $request)
+    {
+        $commentaire = $this->getDoctrine()->getManager()->find('SSPlatformBundle:Commentaire',$id);
+        $commentaire->setDate(new \DateTime());
+
+
+        $commentBox=$this->get('form.factory')->createBuilder(FormType::class,$commentaire)
+            ->add('contenu',TextareaType::class,array('label'=>'Ton commentaire'))
+            ->add('Publier',SubmitType::class)
+            ->getForm();
+
+        // Si la requête est en POST, c'est que le visiteur a soumis le formulaire
+        if ($request->isMethod('POST')) {
+
+            $commentBox->handleRequest($request);
+            // On peut ne pas définir ni la date ni la publication,
+            // car ces attributs sont définis automatiquement dans le constructeur
+
+
+            if ($commentBox->isValid()) {
+
+                // On récupère l'EntityManager
+                $em = $this->getDoctrine()->getManager();
+
+                // Étape 1 : On « persiste » l'entité, Elle est gérée par doctrine
+                $em->persist($commentaire);
+
+                // Étape 2 :Eexécutions des requêtes sur ses objets
+                $em->flush();
+                $request->getSession()->getFlashBag()->add('notice_C', 'Commentaire bien enregistrée.');
+
+
+                // Puis on redirige vers la page de visualisation de cettte annonce
+                return $this->redirectToRoute('ss_platform_view', array('id' => $commentaire->getOffre()->getId()));
+            }
+        }
+
+        // Si on n'est pas en POST, alors on affiche le formulaire
+        return $this->render('SSPlatformBundle:Advert:view.html.twig',array('offre' =>$commentaire->getOffre(),'commentBox'=>$commentBox->createView()));
+
+    }
+
+    public function deleteCAction($id, Request $request)
+    {
+        $commentaire=$this->getDoctrine()->getManager()->find('SSPlatformBundle:Commentaire',$id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($commentaire);
+        $em->flush();
+
+        $request->getSession()->getFlashBag()->add('notice_C_Delete', 'Commentaire supprimé.');
+
+
+        return $this->redirectToRoute('ss_platform_home');
+    }
 
 }
 ?>

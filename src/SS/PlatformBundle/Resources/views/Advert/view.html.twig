@@ -19,11 +19,12 @@ Affichage de l'annonce n°{{ offre.id }}
 </div>
 <p>
     {{ offre.intitule }}<br>
-    <img src={{ logo }}>
+
+    {% if is_granted('ROLE_ADMIN') %}
     <a href="{{ path('ss_platform_edit',{'id':offre.id}) }}" type="submit">Modifier</a>
 
     <a href="{{ path('ss_platform_delete',{'id':offre.id}) }}" type="submit">Supprimer</a>
-
+    {% endif %}
 </p>
     {% for message in app.session.flashbag.get('notice_C') %}
         <p>Message flash : {{ message }}</p>
@@ -44,9 +45,14 @@ Affichage de l'annonce n°{{ offre.id }}
                         <div class="panel-body">
                             {{ coms.contenu }}
                         </div><!-- /panel-body -->
+
                     </div><!-- /panel panel-default -->
                 </div><!-- /col-sm-5 -->
+                {% if is_granted('ROLE_ADMIN') or coms.auteur==app.user %}
+                <a href="{{ path('ss_platform_editC',{'id':coms.id}) }}" type="submit">Modifier</a>
 
+                <a href="{{ path('ss_platform_deleteC',{'id':coms.id}) }}" type="submit">Supprimer</a>
+                {% endif %}
             </div><!-- /row -->
         </div><!-- /container -->
 

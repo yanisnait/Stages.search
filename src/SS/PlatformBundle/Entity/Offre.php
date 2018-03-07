@@ -85,7 +85,7 @@ class Offre
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="offre", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="offre", cascade={"persist","remove"})
      */
     private $avis;
 
